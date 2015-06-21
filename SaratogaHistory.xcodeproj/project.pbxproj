@@ -15,6 +15,7 @@
 		4CA24BEC1B373AE600593941 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BE71B373AE600593941 /* SHBaseViewController.m */; };
 		4CA24BED1B373AE600593941 /* SHTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BE91B373AE600593941 /* SHTourViewController.m */; };
 		4CA24BEE1B373AE600593941 /* SHPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BEB1B373AE600593941 /* SHPlaceViewController.m */; };
+		4CA24BF41B373E1200593941 /* SHImageScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BF31B373E1200593941 /* SHImageScrollerView.m */; };
 		4CFFB40E1B373984008A56C3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFB40D1B373984008A56C3 /* Reachability.m */; };
 		52255A0128719DB322969A65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0C622101A79892C2599885 /* libPods.a */; };
 		6C3C1E1A1B37227D008B39D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E191B37227D008B39D0 /* main.m */; };
@@ -54,6 +55,8 @@
 		4CA24BE91B373AE600593941 /* SHTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHTourViewController.m; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHTourViewController.m"; sourceTree = "<group>"; };
 		4CA24BEA1B373AE600593941 /* SHPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHPlaceViewController.h; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHPlaceViewController.h"; sourceTree = "<group>"; };
 		4CA24BEB1B373AE600593941 /* SHPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHPlaceViewController.m; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHPlaceViewController.m"; sourceTree = "<group>"; };
+		4CA24BF21B373E1200593941 /* SHImageScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHImageScrollerView.h; sourceTree = "<group>"; };
+		4CA24BF31B373E1200593941 /* SHImageScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHImageScrollerView.m; sourceTree = "<group>"; };
 		4CFFB40C1B373984008A56C3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../Downloads/Saratoga-History-master/Reachability.h"; sourceTree = "<group>"; };
 		4CFFB40D1B373984008A56C3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../Downloads/Saratoga-History-master/Reachability.m"; sourceTree = "<group>"; };
 		6C3C1E141B37227D008B39D0 /* SaratogaHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaratogaHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +128,8 @@
 				4C964F981B37343500F59E59 /* SYAudioPlayerView.m */,
 				4C964F991B37343500F59E59 /* SYFullAudioPlayerView.h */,
 				4C964F9A1B37343500F59E59 /* SYFullAudioPlayerView.m */,
+				4CA24BF21B373E1200593941 /* SHImageScrollerView.h */,
+				4CA24BF31B373E1200593941 /* SHImageScrollerView.m */,
 			);
 			name = Views;
 			path = SaratogaHistory/Views;
@@ -182,9 +187,9 @@
 				6C3C1E241B37227D008B39D0 /* Images.xcassets */,
 				6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */,
 				6C3C1E211B37227D008B39D0 /* Main.storyboard */,
+				4C964F961B37343500F59E59 /* Views */,
 				0A1FEA3E1B372B2C00AFB6A3 /* Models */,
 				6C3C1E171B37227D008B39D0 /* Supporting Files */,
-				4C964F961B37343500F59E59 /* Views */,
 			);
 			path = SaratogaHistory;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				4CA24BEC1B373AE600593941 /* SHBaseViewController.m in Sources */,
 				4CA24BED1B373AE600593941 /* SHTourViewController.m in Sources */,
 				6C3C1E1D1B37227D008B39D0 /* AppDelegate.m in Sources */,
+				4CA24BF41B373E1200593941 /* SHImageScrollerView.m in Sources */,
 				4C964F951B37340B00F59E59 /* UIView+AutoLayout.m in Sources */,
 				4CA24BEE1B373AE600593941 /* SHPlaceViewController.m in Sources */,
 				4CFFB40E1B373984008A56C3 /* Reachability.m in Sources */,

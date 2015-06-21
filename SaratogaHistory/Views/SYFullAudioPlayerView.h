@@ -11,7 +11,8 @@
 typedef enum : NSUInteger {
     StopAudioReset,
     StopAudioPause,
-} StopAudio;
+    StopAudio
+};
 
 @protocol SYFullAudioPlayerViewDelegate;
 
@@ -27,7 +28,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) UIButton      *stopButton;
 @property (strong, nonatomic) UIButton      *nextButton;
 @property (strong, nonatomic) UIButton      *previousButton;
-@property (assign, nonatomic) StopAudio     stopAudio;
+@property (assign, nonatomic) BOOL          stopAudio;
 @property (assign, nonatomic) BOOL          autoplay;
 
 - (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay;
