@@ -121,6 +121,7 @@
     NSArray *IDMphotos = [IDMPhoto photosWithURLs:photosURL];
 
     IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:IDMphotos];
+    browser.displayActionButton = NO;
     [self presentViewController:browser animated:YES completion:nil];
 
 }
