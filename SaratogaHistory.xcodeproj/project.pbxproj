@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0A1FEA411B372B2C00AFB6A3 /* SHPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FEA401B372B2C00AFB6A3 /* SHPlace.m */; };
-		0A1FEA451B372E1300AFB6A3 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1FEA441B372E1300AFB6A3 /* SHBaseViewController.m */; };
 		4C964F941B37340B00F59E59 /* SHPlaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C964F911B37340B00F59E59 /* SHPlaceManager.m */; };
 		4C964F951B37340B00F59E59 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C964F931B37340B00F59E59 /* UIView+AutoLayout.m */; };
 		4C964F9B1B37343500F59E59 /* SYAudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C964F981B37343500F59E59 /* SYAudioPlayerView.m */; };
 		4C964F9C1B37343500F59E59 /* SYFullAudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C964F9A1B37343500F59E59 /* SYFullAudioPlayerView.m */; };
+		4CA24BEC1B373AE600593941 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BE71B373AE600593941 /* SHBaseViewController.m */; };
+		4CA24BED1B373AE600593941 /* SHTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BE91B373AE600593941 /* SHTourViewController.m */; };
+		4CA24BEE1B373AE600593941 /* SHPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA24BEB1B373AE600593941 /* SHPlaceViewController.m */; };
 		4CFFB40E1B373984008A56C3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFB40D1B373984008A56C3 /* Reachability.m */; };
 		52255A0128719DB322969A65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0C622101A79892C2599885 /* libPods.a */; };
 		6C3C1E1A1B37227D008B39D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E191B37227D008B39D0 /* main.m */; };
@@ -36,8 +38,6 @@
 /* Begin PBXFileReference section */
 		0A1FEA3F1B372B2C00AFB6A3 /* SHPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlace.h; sourceTree = "<group>"; };
 		0A1FEA401B372B2C00AFB6A3 /* SHPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlace.m; sourceTree = "<group>"; };
-		0A1FEA431B372E1300AFB6A3 /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
-		0A1FEA441B372E1300AFB6A3 /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
 		0B0C622101A79892C2599885 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E265443D33F62DAD5EADEA4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4C964F901B37340B00F59E59 /* SHPlaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlaceManager.h; sourceTree = "<group>"; };
@@ -48,6 +48,12 @@
 		4C964F981B37343500F59E59 /* SYAudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYAudioPlayerView.m; sourceTree = "<group>"; };
 		4C964F991B37343500F59E59 /* SYFullAudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFullAudioPlayerView.h; sourceTree = "<group>"; };
 		4C964F9A1B37343500F59E59 /* SYFullAudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFullAudioPlayerView.m; sourceTree = "<group>"; };
+		4CA24BE61B373AE600593941 /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHBaseViewController.h; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHBaseViewController.h"; sourceTree = "<group>"; };
+		4CA24BE71B373AE600593941 /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHBaseViewController.m; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHBaseViewController.m"; sourceTree = "<group>"; };
+		4CA24BE81B373AE600593941 /* SHTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHTourViewController.h; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHTourViewController.h"; sourceTree = "<group>"; };
+		4CA24BE91B373AE600593941 /* SHTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHTourViewController.m; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHTourViewController.m"; sourceTree = "<group>"; };
+		4CA24BEA1B373AE600593941 /* SHPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHPlaceViewController.h; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHPlaceViewController.h"; sourceTree = "<group>"; };
+		4CA24BEB1B373AE600593941 /* SHPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHPlaceViewController.m; path = "../../../../Downloads/Saratoga-History-master/Saratoga History/SHPlaceViewController.m"; sourceTree = "<group>"; };
 		4CFFB40C1B373984008A56C3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../Downloads/Saratoga-History-master/Reachability.h"; sourceTree = "<group>"; };
 		4CFFB40D1B373984008A56C3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../Downloads/Saratoga-History-master/Reachability.m"; sourceTree = "<group>"; };
 		6C3C1E141B37227D008B39D0 /* SaratogaHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaratogaHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,15 +98,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		0A1FEA421B372E1300AFB6A3 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				0A1FEA431B372E1300AFB6A3 /* SHBaseViewController.h */,
-				0A1FEA441B372E1300AFB6A3 /* SHBaseViewController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		18D618B3ED089D615FE8AAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +129,19 @@
 			name = Views;
 			path = SaratogaHistory/Views;
 			sourceTree = SOURCE_ROOT;
+		};
+		4CA24BE51B373AC000593941 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CA24BE61B373AE600593941 /* SHBaseViewController.h */,
+				4CA24BE71B373AE600593941 /* SHBaseViewController.m */,
+				4CA24BE81B373AE600593941 /* SHTourViewController.h */,
+				4CA24BE91B373AE600593941 /* SHTourViewController.m */,
+				4CA24BEA1B373AE600593941 /* SHPlaceViewController.h */,
+				4CA24BEB1B373AE600593941 /* SHPlaceViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
 		};
 		4CFFB40B1B373966008A56C3 /* Reachability */ = {
 			isa = PBXGroup;
@@ -167,7 +177,7 @@
 			children = (
 				6C3C1E1B1B37227D008B39D0 /* AppDelegate.h */,
 				6C3C1E1C1B37227D008B39D0 /* AppDelegate.m */,
-				0A1FEA421B372E1300AFB6A3 /* Controllers */,
+				4CA24BE51B373AC000593941 /* Controllers */,
 				4C964F8F1B37340B00F59E59 /* Helpers */,
 				6C3C1E241B37227D008B39D0 /* Images.xcassets */,
 				6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */,
@@ -350,12 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C964F9C1B37343500F59E59 /* SYFullAudioPlayerView.m in Sources */,
-				0A1FEA451B372E1300AFB6A3 /* SHBaseViewController.m in Sources */,
 				0A1FEA411B372B2C00AFB6A3 /* SHPlace.m in Sources */,
 				4C964F941B37340B00F59E59 /* SHPlaceManager.m in Sources */,
 				4C964F9B1B37343500F59E59 /* SYAudioPlayerView.m in Sources */,
+				4CA24BEC1B373AE600593941 /* SHBaseViewController.m in Sources */,
+				4CA24BED1B373AE600593941 /* SHTourViewController.m in Sources */,
 				6C3C1E1D1B37227D008B39D0 /* AppDelegate.m in Sources */,
 				4C964F951B37340B00F59E59 /* UIView+AutoLayout.m in Sources */,
+				4CA24BEE1B373AE600593941 /* SHPlaceViewController.m in Sources */,
 				4CFFB40E1B373984008A56C3 /* Reachability.m in Sources */,
 				6C3C1E1A1B37227D008B39D0 /* main.m in Sources */,
 			);
