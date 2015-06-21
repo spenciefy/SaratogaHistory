@@ -19,8 +19,7 @@
 typedef enum : NSUInteger {
     StopAudioReset,
     StopAudioPause,
-    StopAudio
-};
+}StopAudio;
 
 @interface SYAudioPlayerView : UIView <AVAudioPlayerDelegate>
 
@@ -30,7 +29,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) UISlider      *seekBar;
 @property (strong, nonatomic) UIButton      *playButton;
 @property (strong, nonatomic) UIButton      *stopButton;
-@property (assign, nonatomic) BOOL          stopAudio;
+@property (assign, nonatomic) StopAudio          stopAudio;
 @property (assign, nonatomic) BOOL          autoplay;
 
 - (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay;

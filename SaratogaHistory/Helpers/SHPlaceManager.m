@@ -26,9 +26,11 @@
 
     NSMutableArray *places = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"Places_0"];
+    
     if(![self hasNetwork]) {
         [query fromLocalDatastore];
     }
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects) {
            // [object pinInBackground];
@@ -53,7 +55,7 @@
 }
 
 - (void)uploadPhotos:(PFFile *)photos withCaptions:(NSArray *)captions toObjectID:(NSString *)oID {
-    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Places_0"];
     [query getObjectInBackgroundWithId:oID block:^(PFObject *place, NSError *error) {
         place[@"Images"] = photos;
         place[@"ImageCaptions"] = captions;

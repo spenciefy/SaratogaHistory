@@ -213,16 +213,16 @@
 
 - (void)stopAudio:(id)sender
 {
-    self.stopAudio = StopAudioPause;
+    self.stopAudio = FullStopAudioPause;
     if ([self.audioPlayer isPlaying]) {
-        if (self.stopAudio != StopAudioReset && self.stopAudio != StopAudioPause) {
+        if (self.stopAudio != FullStopAudioReset && self.stopAudio != FullStopAudioPause) {
             //If enum hasn't been set default to StopAudioPause
-            self.stopAudio = StopAudioPause;
+            self.stopAudio = FullStopAudioPause;
             [self.audioPlayer pause];
-        } else if (self.stopAudio == StopAudioReset) {
+        } else if (self.stopAudio == FullStopAudioReset) {
             [self.audioPlayer setCurrentTime:0.0];
             [self.audioPlayer stop];
-        } else if (self.stopAudio == StopAudioPause) {
+        } else if (self.stopAudio == FullStopAudioPause) {
             [self.audioPlayer pause];
         }
         

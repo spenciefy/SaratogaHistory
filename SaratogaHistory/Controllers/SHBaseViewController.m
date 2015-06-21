@@ -11,6 +11,7 @@
 #import "SHBaseViewController.h"
 #import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
 #import <Parse/Parse.h>
+
 @interface SHBaseViewController ()
 
 @property (nonatomic, strong) UIView *mainView;
@@ -27,11 +28,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    
     [self setupMapView];
     
     [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSError *error) {
         placeViewControllers = [placeVCs mutableCopy];
         [self setupPageView];
+        
         annotations = [[NSMutableArray alloc] init];
         annotations = [[self annotations] mutableCopy];
         [self.mapView addAnnotations:annotations];
@@ -54,24 +65,17 @@
         });
     }];
     
-//    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
-//    NSArray *captions = @[@"history museum so cool", @"wasai so pro"];
-//    NSData *imagesData = [NSKeyedArchiver archivedDataWithRootObject:images];
+    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
+    NSArray *captions = @[@"history museum so cool", @"wasai so pro"];
+    NSData *imagesData = [NSKeyedArchiver archivedDataWithRootObject:images];
+    
+    PFFile *imageFile = [PFFile fileWithData:imagesData];
 //    
-//    PFFile *imageFile = [PFFile fileWithData:imagesData];
-//    
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"EH2qAPIoba"];
+//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"yXIsQsu7jD"];
 //    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"58HmKB5Ow6"];
 //    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"1DcZ8K3xpr"];
+//    
     
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    [self.locationManager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,6 +138,7 @@
 }
 
 - (void)setupMapView {
+    
     self.mapView.mapType = MKMapTypeHybrid;
     self.mapView.showsUserLocation = YES;
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
