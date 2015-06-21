@@ -23,6 +23,7 @@
 		4CC918061B3759DA002AAEAF /* previousBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918001B3759DA002AAEAF /* previousBlack.png */; };
 		4CC918071B3759DA002AAEAF /* SaratogaHistory2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918011B3759DA002AAEAF /* SaratogaHistory2.jpg */; };
 		4CC918081B3759DA002AAEAF /* SaratogaHistoryImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */; };
+		4CC9180E1B375C29002AAEAF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9180D1B375C29002AAEAF /* Reachability.m */; };
 		4CFFB40E1B373984008A56C3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFB40D1B373984008A56C3 /* Reachability.m */; };
 		52255A0128719DB322969A65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0C622101A79892C2599885 /* libPods.a */; };
 		6C3C1E1A1B37227D008B39D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E191B37227D008B39D0 /* main.m */; };
@@ -71,6 +72,8 @@
 		4CC918001B3759DA002AAEAF /* previousBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousBlack.png; sourceTree = "<group>"; };
 		4CC918011B3759DA002AAEAF /* SaratogaHistory2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistory2.jpg; sourceTree = "<group>"; };
 		4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistoryImage.jpg; sourceTree = "<group>"; };
+		4CC9180C1B375C29002AAEAF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4CC9180D1B375C29002AAEAF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		4CFFB40C1B373984008A56C3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../Downloads/Saratoga-History-master/Reachability.h"; sourceTree = "<group>"; };
 		4CFFB40D1B373984008A56C3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../Downloads/Saratoga-History-master/Reachability.m"; sourceTree = "<group>"; };
 		6C3C1E141B37227D008B39D0 /* SaratogaHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaratogaHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +134,8 @@
 				4C964F911B37340B00F59E59 /* SHPlaceManager.m */,
 				4C964F921B37340B00F59E59 /* UIView+AutoLayout.h */,
 				4C964F931B37340B00F59E59 /* UIView+AutoLayout.m */,
+				4CC9180C1B375C29002AAEAF /* Reachability.h */,
+				4CC9180D1B375C29002AAEAF /* Reachability.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC9180E1B375C29002AAEAF /* Reachability.m in Sources */,
 				4CC917F71B3742FF002AAEAF /* SHBaseViewController.m in Sources */,
 				4CC917F91B3742FF002AAEAF /* SHTourViewController.m in Sources */,
 				4C964F9C1B37343500F59E59 /* SYFullAudioPlayerView.m in Sources */,
