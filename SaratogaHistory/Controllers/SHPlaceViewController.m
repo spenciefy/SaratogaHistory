@@ -7,15 +7,15 @@
 //
 
 #import "SHPlaceViewController.h"
-#import "EScrollerView.h"
+#import "SHImageScrollerView.h"
 
-@interface SHPlaceViewController () <EScrollerViewDelegate>
+@interface SHPlaceViewController () <SHImageScrollerViewDelegate>
 
 @end
 
 @implementation SHPlaceViewController {
     UIScrollView *_scrollView;
-    UILabel *_titleLabel;
+    UILabel *_captionLabel;
     UITextView *_textView;
 }
 - (void)viewDidLoad {
@@ -29,12 +29,12 @@
                                                  name:@"PageViewChange"
                                                object:nil];
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 40)];
-    _titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
-    _titleLabel.center = CGPointMake(self.view.frame.size.width/2, 25);
-    _titleLabel.textAlignment = NSTextAlignmentLeft;
-    _titleLabel.text = self.place.placeTitle;
-    [self.view addSubview:_titleLabel];
+    _captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 40)];
+    _captionLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
+    _captionLabel.center = CGPointMake(self.view.frame.size.width/2, 25);
+    _captionLabel.textAlignment = NSTextAlignmentLeft;
+    _captionLabel.text = self.place.placeTitle;
+    [self.view addSubview:_captionLabel];
     
     SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURLAsset.URL autoplay:NO];
     audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
@@ -53,7 +53,7 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    EScrollerView *imageScroller = [[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 0, self.view.frame.size.width, 170) ImageArray: self.place.images TitleArray: self.place.imageCaptions];
+    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 170) imageArray:self.place.images captionArray:self.place.imageCaptions];
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];
     

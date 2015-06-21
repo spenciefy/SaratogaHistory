@@ -25,7 +25,7 @@
 - (void)placesWithCompletion:(void (^)(NSArray *placesArray, NSError *error))completionBlock {
 
     NSMutableArray *places = [[NSMutableArray alloc] init];
-    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Places_0"];
     if(![self hasNetwork]) {
         [query fromLocalDatastore];
     }

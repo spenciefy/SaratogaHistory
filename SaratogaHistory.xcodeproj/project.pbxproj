@@ -16,6 +16,13 @@
 		4CC917F71B3742FF002AAEAF /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC917F21B3742FF002AAEAF /* SHBaseViewController.m */; };
 		4CC917F81B3742FF002AAEAF /* SHPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC917F41B3742FF002AAEAF /* SHPlaceViewController.m */; };
 		4CC917F91B3742FF002AAEAF /* SHTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC917F61B3742FF002AAEAF /* SHTourViewController.m */; };
+		4CC917FB1B375981002AAEAF /* I Need A Dollar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CC917FA1B375981002AAEAF /* I Need A Dollar.mp3 */; };
+		4CC918031B3759DA002AAEAF /* nextBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC917FD1B3759DA002AAEAF /* nextBlack.png */; };
+		4CC918041B3759DA002AAEAF /* pauseBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC917FE1B3759DA002AAEAF /* pauseBlack.png */; };
+		4CC918051B3759DA002AAEAF /* playBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC917FF1B3759DA002AAEAF /* playBlack.png */; };
+		4CC918061B3759DA002AAEAF /* previousBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918001B3759DA002AAEAF /* previousBlack.png */; };
+		4CC918071B3759DA002AAEAF /* SaratogaHistory2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918011B3759DA002AAEAF /* SaratogaHistory2.jpg */; };
+		4CC918081B3759DA002AAEAF /* SaratogaHistoryImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */; };
 		4CFFB40E1B373984008A56C3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFB40D1B373984008A56C3 /* Reachability.m */; };
 		52255A0128719DB322969A65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0C622101A79892C2599885 /* libPods.a */; };
 		6C3C1E1A1B37227D008B39D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E191B37227D008B39D0 /* main.m */; };
@@ -57,6 +64,13 @@
 		4CC917F41B3742FF002AAEAF /* SHPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHPlaceViewController.m; path = Controllers/SHPlaceViewController.m; sourceTree = "<group>"; };
 		4CC917F51B3742FF002AAEAF /* SHTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHTourViewController.h; path = Controllers/SHTourViewController.h; sourceTree = "<group>"; };
 		4CC917F61B3742FF002AAEAF /* SHTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHTourViewController.m; path = Controllers/SHTourViewController.m; sourceTree = "<group>"; };
+		4CC917FA1B375981002AAEAF /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
+		4CC917FD1B3759DA002AAEAF /* nextBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBlack.png; sourceTree = "<group>"; };
+		4CC917FE1B3759DA002AAEAF /* pauseBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseBlack.png; sourceTree = "<group>"; };
+		4CC917FF1B3759DA002AAEAF /* playBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBlack.png; sourceTree = "<group>"; };
+		4CC918001B3759DA002AAEAF /* previousBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousBlack.png; sourceTree = "<group>"; };
+		4CC918011B3759DA002AAEAF /* SaratogaHistory2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistory2.jpg; sourceTree = "<group>"; };
+		4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistoryImage.jpg; sourceTree = "<group>"; };
 		4CFFB40C1B373984008A56C3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../Downloads/Saratoga-History-master/Reachability.h"; sourceTree = "<group>"; };
 		4CFFB40D1B373984008A56C3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../Downloads/Saratoga-History-master/Reachability.m"; sourceTree = "<group>"; };
 		6C3C1E141B37227D008B39D0 /* SaratogaHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaratogaHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +162,19 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		4CC917FC1B3759DA002AAEAF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4CC917FD1B3759DA002AAEAF /* nextBlack.png */,
+				4CC917FE1B3759DA002AAEAF /* pauseBlack.png */,
+				4CC917FF1B3759DA002AAEAF /* playBlack.png */,
+				4CC918001B3759DA002AAEAF /* previousBlack.png */,
+				4CC918011B3759DA002AAEAF /* SaratogaHistory2.jpg */,
+				4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		4CFFB40B1B373966008A56C3 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,13 +209,14 @@
 			children = (
 				6C3C1E1B1B37227D008B39D0 /* AppDelegate.h */,
 				6C3C1E1C1B37227D008B39D0 /* AppDelegate.m */,
+				6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */,
+				6C3C1E211B37227D008B39D0 /* Main.storyboard */,
 				4CA24BE51B373AC000593941 /* Controllers */,
 				4C964F8F1B37340B00F59E59 /* Helpers */,
 				6C3C1E241B37227D008B39D0 /* Images.xcassets */,
-				6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */,
-				6C3C1E211B37227D008B39D0 /* Main.storyboard */,
 				4C964F961B37343500F59E59 /* Views */,
 				0A1FEA3E1B372B2C00AFB6A3 /* Models */,
+				4CC917FC1B3759DA002AAEAF /* Images */,
 				6C3C1E171B37227D008B39D0 /* Supporting Files */,
 			);
 			path = SaratogaHistory;
@@ -197,6 +225,7 @@
 		6C3C1E171B37227D008B39D0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CC917FA1B375981002AAEAF /* I Need A Dollar.mp3 */,
 				6C3C1E181B37227D008B39D0 /* Info.plist */,
 				6C3C1E191B37227D008B39D0 /* main.m */,
 			);
@@ -312,8 +341,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3C1E231B37227D008B39D0 /* Main.storyboard in Resources */,
+				4CC917FB1B375981002AAEAF /* I Need A Dollar.mp3 in Resources */,
+				4CC918081B3759DA002AAEAF /* SaratogaHistoryImage.jpg in Resources */,
 				6C3C1E281B37227D008B39D0 /* LaunchScreen.xib in Resources */,
 				6C3C1E251B37227D008B39D0 /* Images.xcassets in Resources */,
+				4CC918071B3759DA002AAEAF /* SaratogaHistory2.jpg in Resources */,
+				4CC918051B3759DA002AAEAF /* playBlack.png in Resources */,
+				4CC918041B3759DA002AAEAF /* pauseBlack.png in Resources */,
+				4CC918061B3759DA002AAEAF /* previousBlack.png in Resources */,
+				4CC918031B3759DA002AAEAF /* nextBlack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,9 +538,12 @@
 			baseConfigurationReference = 0E265443D33F62DAD5EADEA4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SaratogaHistory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -513,9 +552,12 @@
 			baseConfigurationReference = BA3C52C486C8911CA9830DE3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SaratogaHistory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -14,7 +14,7 @@
 
 @interface SHPlaceViewController : UIViewController <UIScrollViewDelegate >
 
-@property (nonatomic, weak) id<SHPlaceViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <SHPlaceViewControllerDelegate> delegate;
 @property (strong, nonatomic) SHPlace *place;
 @property (nonatomic, assign) int pageIndex;
 @property (nonatomic, assign) BOOL expanded;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+
 typedef enum : NSUInteger {
     StopAudioReset,
     StopAudioPause,
