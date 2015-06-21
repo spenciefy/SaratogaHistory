@@ -1,10 +1,38 @@
 PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Bolts/Tasks (1.2.0)
+  - DACircularProgress (2.3.1)
+  - IDMPhotoBrowser (1.6.2):
+    - AFNetworking
+    - DACircularProgress
+    - pop
   - JPSThumbnailAnnotation (1.0.0)
   - Parse (1.7.4):
     - Bolts/Tasks (>= 1.1.5)
+  - pop (1.0.7)
 
 DEPENDENCIES:
+  - IDMPhotoBrowser
   - JPSThumbnailAnnotation (from `https://github.com/spenciefy/JPSThumbnailAnnotation.git`,
     commit `c738c8a905fccc54745d2c16a627a5d3e7226295`)
   - Parse
@@ -20,8 +48,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/spenciefy/JPSThumbnailAnnotation.git
 
 SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  IDMPhotoBrowser: ebbfa6690456b72dd92d93b7bc11d71519f4d06d
   JPSThumbnailAnnotation: 4b35e87788d903db3fec294e7ef44136b9f741fb
   Parse: 6ca512c6e860b66739c95151b2f76ac4712b7842
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
 
 COCOAPODS: 0.37.2

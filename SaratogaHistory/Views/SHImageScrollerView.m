@@ -24,7 +24,7 @@
         scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, viewSize.size.width, viewSize.size.height)];
         
         scrollView.pagingEnabled = YES;
-        scrollView.contentSize = CGSizeMake(viewSize.size.width * pageCount, viewSize.size.height * pageCount);
+        scrollView.contentSize = CGSizeMake(viewSize.size.width * pageCount, viewSize.size.height);
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.scrollsToTop = NO;

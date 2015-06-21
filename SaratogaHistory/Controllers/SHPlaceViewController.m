@@ -8,6 +8,7 @@
 
 #import "SHPlaceViewController.h"
 #import "SHImageScrollerView.h"
+#import <IDMPhotoBrowser/IDMPhotoBrowser.h>
 
 @interface SHPlaceViewController () <SHImageScrollerViewDelegate>
 
@@ -100,5 +101,28 @@
     return [myTextView sizeThatFits:CGSizeMake(myTextView.frame.size.width, FLT_MAX)];
 }
 
+- (void)SHImageScrollerViewDidTap:(NSUInteger)index {
+    NSLog(@"tapped");
+    // URLs array
+    NSArray *photosURL = @[[NSURL URLWithString:@"http://farm4.static.flickr.com/3567/3523321514_371d9ac42f_b.jpg"],
+                           [NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b_b.jpg"],
+                           [NSURL URLWithString:@"http://farm4.static.flickr.com/3364/3338617424_7ff836d55f_b.jpg"],
+                           [NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b_b.jpg"]];
+    
+    // Create an array to store IDMPhoto objects
+    NSMutableArray *photos = [NSMutableArray new];
+
+    for (NSURL *url in photosURL) {
+        IDMPhoto *photo = [IDMPhoto photoWithURL:url];
+        [photos addObject:photo];
+    }
+    // TODO: look at for captions: self.place.imageCaptions
+    // Or use this constructor to receive an NSArray of IDMPhoto objects from your NSURL objects
+    NSArray *IDMphotos = [IDMPhoto photosWithURLs:photosURL];
+
+    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:IDMphotos];
+    [self presentViewController:browser animated:YES completion:nil];
+
+}
 
 @end
