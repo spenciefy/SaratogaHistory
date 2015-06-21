@@ -1,25 +1,137 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Base View Controller-->
+        <scene sceneID="edy-ln-aYX">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="jmw-o8-b2O" customClass="SHBaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="PjY-jS-JiT"/>
+                        <viewControllerLayoutGuide type="bottom" id="DHe-vr-dCF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="eRb-2C-YEE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Q0-2a-mFI" userLabel="MapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" alpha="0.98000001907348633" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dP6-E7-oGl">
+                                <rect key="frame" x="12" y="26" width="572" height="29"/>
+                                <color key="backgroundColor" red="0.21804942259999999" green="0.21804942259999999" blue="0.21804942259999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Places"/>
+                                    <segment title="Walking Tour"/>
+                                    <segment title="More"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="jmw-o8-b2O" eventType="valueChanged" id="PYU-qM-i13"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DHe-vr-dCF" firstAttribute="top" secondItem="5Q0-2a-mFI" secondAttribute="bottom" id="33w-nc-kqx"/>
+                            <constraint firstItem="5Q0-2a-mFI" firstAttribute="top" secondItem="eRb-2C-YEE" secondAttribute="topMargin" id="44T-AN-HsH"/>
+                            <constraint firstAttribute="centerX" secondItem="5Q0-2a-mFI" secondAttribute="centerX" id="6NB-mK-B45"/>
+                            <constraint firstItem="DHe-vr-dCF" firstAttribute="top" secondItem="5Q0-2a-mFI" secondAttribute="bottom" constant="302" id="SfV-Yh-FbI"/>
+                            <constraint firstAttribute="centerX" secondItem="dP6-E7-oGl" secondAttribute="centerX" id="Su0-FI-THz"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="trailing" secondItem="eRb-2C-YEE" secondAttribute="trailingMargin" id="Upw-mq-btW"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="leading" secondItem="eRb-2C-YEE" secondAttribute="leadingMargin" constant="-4" id="aZ6-25-dyv"/>
+                            <constraint firstAttribute="centerX" secondItem="dP6-E7-oGl" secondAttribute="centerX" id="dvt-Ke-Ddb"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="trailing" secondItem="eRb-2C-YEE" secondAttribute="trailingMargin" id="eqb-q8-hyT"/>
+                            <constraint firstItem="5Q0-2a-mFI" firstAttribute="leading" secondItem="eRb-2C-YEE" secondAttribute="leading" id="j58-wj-Tz5"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="top" secondItem="PjY-jS-JiT" secondAttribute="bottom" constant="5" id="qio-Bn-DNn"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="top" secondItem="eRb-2C-YEE" secondAttribute="topMargin" constant="25" id="rKm-TV-Jm4"/>
+                            <constraint firstItem="DHe-vr-dCF" firstAttribute="top" secondItem="5Q0-2a-mFI" secondAttribute="bottom" id="sBL-cf-zs2"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="leading" secondItem="eRb-2C-YEE" secondAttribute="leadingMargin" constant="-4" id="stb-9g-7cl"/>
+                            <constraint firstItem="dP6-E7-oGl" firstAttribute="trailing" secondItem="eRb-2C-YEE" secondAttribute="trailingMargin" constant="-4" id="uQ5-y3-kbB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="stb-9g-7cl"/>
+                                <exclude reference="Su0-FI-THz"/>
+                                <exclude reference="eqb-q8-hyT"/>
+                                <exclude reference="uQ5-y3-kbB"/>
+                                <exclude reference="rKm-TV-Jm4"/>
+                                <exclude reference="dvt-Ke-Ddb"/>
+                                <exclude reference="SfV-Yh-FbI"/>
+                                <exclude reference="sBL-cf-zs2"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="5Q0-2a-mFI" id="jvg-y2-i4y"/>
+                        <outlet property="segmentedControl" destination="dP6-E7-oGl" id="W9B-0g-0h4"/>
+                        <segue destination="m9J-Zx-GvA" kind="presentation" identifier="ModalTourVC" modalTransitionStyle="flipHorizontal" id="DiI-Vy-PVu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HI6-bc-bT5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="529"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="94K-Dp-oJD">
+            <objects>
+                <pageViewController storyboardIdentifier="SHPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="6" navigationOrientation="horizontal" spineLocation="none" id="8QT-f3-lud" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eiL-qV-wE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="-156"/>
+        </scene>
+        <!--Place View Controller-->
+        <scene sceneID="OwM-WS-lhE">
+            <objects>
+                <viewController storyboardIdentifier="SHPlaceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lnK-Jq-Cra" customClass="SHPlaceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IWk-pR-JoT"/>
+                        <viewControllerLayoutGuide type="bottom" id="y9s-e0-LXg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b6z-Vd-6Pn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPR-i3-Ozq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="446" y="1262"/>
+        </scene>
+        <!--Tour View Controller-->
+        <scene sceneID="dZb-Zb-pbq">
+            <objects>
+                <viewController id="m9J-Zx-GvA" customClass="SHTourViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jHN-cH-geb"/>
+                        <viewControllerLayoutGuide type="bottom" id="vx8-kj-05Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Yh-dQ-zRp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EeL-gM-XoT" userLabel="MapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vx8-kj-05Q" firstAttribute="top" secondItem="EeL-gM-XoT" secondAttribute="bottom" id="KLq-bp-aH0"/>
+                            <constraint firstItem="EeL-gM-XoT" firstAttribute="top" secondItem="7Yh-dQ-zRp" secondAttribute="topMargin" id="OXu-pu-1xQ"/>
+                            <constraint firstAttribute="centerX" secondItem="EeL-gM-XoT" secondAttribute="centerX" id="cOe-2B-Caq"/>
+                            <constraint firstAttribute="centerY" secondItem="EeL-gM-XoT" secondAttribute="centerY" id="rsy-Of-2xe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="EeL-gM-XoT" id="l5k-2M-zYf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDS-8X-eCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1099" y="529"/>
         </scene>
     </scenes>
 </document>
