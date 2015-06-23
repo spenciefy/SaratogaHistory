@@ -2,7 +2,7 @@
 //  SHPlaceViewController.m
 //  Saratoga History
 //
-//  Created by Richard Liu on 12/26/14.
+//  Created by Richard Liu on 6/21/15.
 //  Copyright (c) 2015 Richard Liu. All rights reserved.
 //
 
