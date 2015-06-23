@@ -138,7 +138,6 @@
 }
 
 - (void)setupMapView {
-    
     self.mapView.mapType = MKMapTypeHybrid;
     self.mapView.showsUserLocation = YES;
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -151,7 +150,6 @@
     region.span.latitudeDelta = spanX;
     region.span.longitudeDelta = spanY;
     [self.mapView setRegion:region animated:YES];
-    
     
     MKMapPoint userPoint = MKMapPointForCoordinate(self.mapView.userLocation.location.coordinate);
     MKMapRect mapRect = self.mapView.visibleMapRect;
@@ -322,7 +320,8 @@
     } else if(self.segmentedControl.selectedSegmentIndex == 1) {
         [self performSegueWithIdentifier:@"ModalTourVC" sender:self];
     } else {
-        //something for more
+        //something for more tab
+        [self performSegueWithIdentifier:@"MoreVC" sender:self];
     }
 }
 

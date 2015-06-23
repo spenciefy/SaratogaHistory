@@ -71,7 +71,6 @@
     region.span.longitudeDelta = spanY;
     [self.mapView setRegion:region animated:YES];
     
-    
     MKMapPoint userPoint = MKMapPointForCoordinate(self.mapView.userLocation.location.coordinate);
     MKMapRect mapRect = self.mapView.visibleMapRect;
     BOOL inside = MKMapRectContainsPoint(mapRect, userPoint);

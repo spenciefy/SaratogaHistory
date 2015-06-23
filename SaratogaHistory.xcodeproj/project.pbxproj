@@ -24,6 +24,7 @@
 		4CC918071B3759DA002AAEAF /* SaratogaHistory2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918011B3759DA002AAEAF /* SaratogaHistory2.jpg */; };
 		4CC918081B3759DA002AAEAF /* SaratogaHistoryImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */; };
 		4CC9180E1B375C29002AAEAF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9180D1B375C29002AAEAF /* Reachability.m */; };
+		4CC918111B39D6B5002AAEAF /* SHMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC918101B39D6B5002AAEAF /* SHMoreViewController.m */; };
 		52255A0128719DB322969A65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0C622101A79892C2599885 /* libPods.a */; };
 		6C3C1E1A1B37227D008B39D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E191B37227D008B39D0 /* main.m */; };
 		6C3C1E1D1B37227D008B39D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E1C1B37227D008B39D0 /* AppDelegate.m */; };
@@ -75,6 +76,8 @@
 		4CC918021B3759DA002AAEAF /* SaratogaHistoryImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistoryImage.jpg; sourceTree = "<group>"; };
 		4CC9180C1B375C29002AAEAF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4CC9180D1B375C29002AAEAF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4CC9180F1B39D6B5002AAEAF /* SHMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMoreViewController.h; sourceTree = "<group>"; };
+		4CC918101B39D6B5002AAEAF /* SHMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMoreViewController.m; sourceTree = "<group>"; };
 		6C3C1E141B37227D008B39D0 /* SaratogaHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaratogaHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3C1E181B37227D008B39D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C3C1E191B37227D008B39D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				4CC917F41B3742FF002AAEAF /* SHPlaceViewController.m */,
 				4CC917F51B3742FF002AAEAF /* SHTourViewController.h */,
 				4CC917F61B3742FF002AAEAF /* SHTourViewController.m */,
+				4CC9180F1B39D6B5002AAEAF /* SHMoreViewController.h */,
+				4CC918101B39D6B5002AAEAF /* SHMoreViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				4C964F9C1B37343500F59E59 /* SYFullAudioPlayerView.m in Sources */,
 				0A1FEA411B372B2C00AFB6A3 /* SHPlace.m in Sources */,
 				4C964F941B37340B00F59E59 /* SHPlaceManager.m in Sources */,
+				4CC918111B39D6B5002AAEAF /* SHMoreViewController.m in Sources */,
 				4C964F9B1B37343500F59E59 /* SYAudioPlayerView.m in Sources */,
 				6C3C1E1D1B37227D008B39D0 /* AppDelegate.m in Sources */,
 				4CA24BF41B373E1200593941 /* SHImageScrollerView.m in Sources */,

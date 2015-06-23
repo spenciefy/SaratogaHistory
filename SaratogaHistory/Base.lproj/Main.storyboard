@@ -32,6 +32,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="segmentedControlAction:" destination="jmw-o8-b2O" eventType="valueChanged" id="PYU-qM-i13"/>
+                                    <segue destination="4hM-yn-PSc" kind="presentation" identifier="MoreVC" modalTransitionStyle="flipHorizontal" id="NvE-bv-RsV"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -132,7 +133,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDS-8X-eCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="529"/>
+            <point key="canvasLocation" x="1143" y="529"/>
+        </scene>
+        <!--More View Controller-->
+        <scene sceneID="acw-7r-wIU">
+            <objects>
+                <viewController storyboardIdentifier="MoreVC" id="4hM-yn-PSc" customClass="SHMoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nmj-tp-AKW"/>
+                        <viewControllerLayoutGuide type="bottom" id="bqI-a0-Pmt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eG2-k4-E7u">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hET-5T-lIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="1262"/>
         </scene>
     </scenes>
 </document>
