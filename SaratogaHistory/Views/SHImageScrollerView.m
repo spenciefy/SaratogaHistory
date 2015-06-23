@@ -39,7 +39,7 @@
             [imgView setFrame:CGRectMake(viewSize.size.width * i, 0, viewSize.size.width * i, viewSize.size.height)];
             imgView.tag = i;
             UITapGestureRecognizer *Tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagePressed:)];
-            [Tap setNumberOfTapsRequired:1];
+            [Tap setNumberOfTapsRequired:1];    
             [Tap setNumberOfTouchesRequired:1];
             imgView.userInteractionEnabled=YES;
             [imgView addGestureRecognizer:Tap];

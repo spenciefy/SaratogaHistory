@@ -10,10 +10,5 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface SHMoreViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
-
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-
+@interface SHMoreViewController : UIViewController
 @end
