@@ -105,11 +105,17 @@
     NSLog(@"tapped image");
 
     // Filepath array
-    NSArray *images = @[[UIImage imageNamed:@"SaratogaHistory2.jpg"],
-                        [UIImage imageNamed:@"SaratogaHistoryImage.jpg"]];
+    NSDictionary *images = @{
+                             @"1":[NSArray arrayWithObjects:
+                                   [UIImage imageNamed:@"../Images/01/"],
+                                   [UIImage imageNamed:@"blah"], nil],
+                             @"2":[NSArray arrayWithObjects:
+                                   [UIImage imageNamed:@"blah"],
+                                   [UIImage imageNamed:@"blah"], nil]
+                             };
     
     // IDMPhotot array
-    NSArray *photos = [IDMPhoto photosWithImages:images];
+    NSArray *photos = [IDMPhoto photosWithImages:images[@"0"]];
     // Iterate through IDMPhoto objects and add captions
     int i = 0;
     for (IDMPhoto *photo in photos) {
