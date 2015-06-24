@@ -11,8 +11,7 @@
 
 @implementation SYAudioPlayerView
 
-- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay
-{
+- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay {
     self = [super initWithFrame:frame];
     self.autoplay = autoplay;
     
@@ -176,8 +175,7 @@
     self.endTime.text = [NSString stringWithFormat:@"-%d:%@", min1, secStr1];
 }
 
-- (void)playAudio:(id)sender
-{
+- (void)playAudio:(id)sender {
     if (![self.audioPlayer isPlaying]) {
         self.playButton.hidden = YES;
         self.stopButton.hidden = NO;
@@ -186,8 +184,7 @@
     }
 }
 
-- (void)stopAudio:(id)sender
-{
+- (void)stopAudio:(id)sender {
     self.stopAudio = StopAudioPause;
     if ([self.audioPlayer isPlaying]) {
         if (self.stopAudio != StopAudioReset && self.stopAudio != StopAudioPause) {
@@ -206,8 +203,7 @@
     }
 }
 
-- (void)cleanUp
-{
+- (void)cleanUp {
     [self.audioPlayer stop];
 }
 

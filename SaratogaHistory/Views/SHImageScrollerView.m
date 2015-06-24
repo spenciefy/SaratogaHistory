@@ -70,8 +70,7 @@
     return self;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender
-{
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
     CGFloat pageWidth = scrollView.frame.size.width;
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     currentPageIndex=page;
@@ -87,8 +86,7 @@
     [noteTitle setText:[captionArray objectAtIndex:captionIndex]];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView
-{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView {
     if (currentPageIndex==0) {
         [_scrollView setContentOffset:CGPointMake(([imageArray count]-2)*viewSize.size.width, 0)];
     }
@@ -97,8 +95,7 @@
     }
 }
 
-- (void)imagePressed:(UITapGestureRecognizer *)sender
-{
+- (void)imagePressed:(UITapGestureRecognizer *)sender {
     if ([delegate respondsToSelector:@selector(SHImageScrollerViewDidTap:)]) {
         [delegate SHImageScrollerViewDidTap:sender.view.tag];
     }

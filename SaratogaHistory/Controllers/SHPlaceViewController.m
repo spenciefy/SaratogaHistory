@@ -102,36 +102,23 @@
 }
 
 - (void)SHImageScrollerViewDidTap:(NSUInteger)index {
-    NSLog(@"tapped");
-    // URLs array
-    NSArray *photosURL = @[[NSURL URLWithString:@"http://farm4.static.flickr.com/3567/3523321514_371d9ac42f_b.jpg"],
-                           [NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b_b.jpg"],
-                           [NSURL URLWithString:@"http://farm4.static.flickr.com/3364/3338617424_7ff836d55f_b.jpg"],
-                           [NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b_b.jpg"]];
-    //NSArray *captions = @[@"Caption 1", @"another caption", @"blah", @"more stuff"];
+    NSLog(@"tapped image");
+
+    // Filepath array
+    NSArray *images = @[[UIImage imageNamed:@"SaratogaHistory2.jpg"],
+                        [UIImage imageNamed:@"SaratogaHistoryImage.jpg"]];
     
-    // Create an array to store IDMPhoto objects
-    NSMutableArray *photos = [NSMutableArray new];
-    
+    // IDMPhotot array
+    NSArray *photos = [IDMPhoto photosWithImages:images];
+    // Iterate through IDMPhoto objects and add captions
     int i = 0;
-    for (NSURL *url in photosURL) {
-        IDMPhoto *photo = [IDMPhoto photoWithURL:url];
+    for (IDMPhoto *photo in photos) {
         photo.caption = [self.place.imageCaptions objectAtIndex:i];
-        [photos addObject:photo];
+#warning Find a better way to iterate through captions.
         if (i < 1) {
             i++;
         }
     }
-    
-    // make it number of items, not const
-    //for (int i = 0; i < 4; i++) {
-    //
-    //}z
-    
-    // TODO: look at for captions: self.place.imageCaptions
-    
-    // Or use this constructor to receive an NSArray of IDMPhoto objects from your NSURL objects
-    //NSArray *IDMphotos = [IDMPhoto photosWithURLs:photosURL];
     
     IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
     browser.displayActionButton = NO;
