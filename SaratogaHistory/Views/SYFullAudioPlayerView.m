@@ -11,8 +11,7 @@
 
 @implementation SYFullAudioPlayerView
 
-- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay
-{
+- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay {
     self = [super initWithFrame:frame];
     self.autoplay = autoplay;
     
@@ -144,8 +143,7 @@
     return self;
 }
 
-- (void)updateTime:(NSTimer *)timer
-{
+- (void)updateTime:(NSTimer *)timer {
     NSTimeInterval timePassed = self.audioPlayer.currentTime;
     int min= timePassed/60;
     int sec= lroundf(timePassed) % 60;
@@ -175,8 +173,7 @@
     }
 }
 
-- (void)updateSlider:(id)sender
-{
+- (void)updateSlider:(id)sender {
     self.audioPlayer.currentTime = self.seekBar.value;
     
     NSTimeInterval timePassed = self.audioPlayer.currentTime;
@@ -201,8 +198,7 @@
     self.endTime.text = [NSString stringWithFormat:@"-%d:%@", min1, secStr1];
 }
 
-- (void)playAudio:(id)sender
-{
+- (void)playAudio:(id)sender {
     if (![self.audioPlayer isPlaying]) {
         self.playButton.hidden = YES;
         self.stopButton.hidden = NO;
@@ -211,8 +207,7 @@
     }
 }
 
-- (void)stopAudio:(id)sender
-{
+- (void)stopAudio:(id)sender {
     self.stopAudio = FullStopAudioPause;
     if ([self.audioPlayer isPlaying]) {
         if (self.stopAudio != FullStopAudioReset && self.stopAudio != FullStopAudioPause) {
@@ -231,23 +226,20 @@
     }
 }
 
-- (void)nextTrack
-{
+- (void)nextTrack {
     if ([_delegate respondsToSelector:@selector(nextTrack)]) {
         [_delegate nextTrack];
     }
 }
 
 
-- (void)previousTrack
-{
+- (void)previousTrack {
     if ([_delegate respondsToSelector:@selector(previousTrack)]) {
         [_delegate previousTrack];
     }
 }
 
-- (void)cleanUp
-{
+- (void)cleanUp {
     [self.audioPlayer stop];
 }
 

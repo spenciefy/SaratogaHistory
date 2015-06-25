@@ -318,9 +318,10 @@
     if(self.segmentedControl.selectedSegmentIndex == 0) {
         //nothing
     } else if(self.segmentedControl.selectedSegmentIndex == 1) {
+        // Walking Tour tab
         [self performSegueWithIdentifier:@"ModalTourVC" sender:self];
     } else {
-        //something for more tab
+        // More tab
         [self performSegueWithIdentifier:@"MoreVC" sender:self];
     }
 }
