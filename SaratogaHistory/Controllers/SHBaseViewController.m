@@ -11,6 +11,7 @@
 #import "SHBaseViewController.h"
 #import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
 #import <Parse/Parse.h>
+#import "SHTourViewController.h"
 
 @interface SHBaseViewController ()
 
@@ -319,8 +320,9 @@
         //nothing
     } else if(self.segmentedControl.selectedSegmentIndex == 1) {
         // Walking Tour tab
-        [self performSegueWithIdentifier:@"ModalTourVC" sender:self];
-    } else {
+        [[self topMostController] performSegueWithIdentifier:@"ModalTourVC" sender:self];
+        
+    } else if (self.segmentedControl.selectedSegmentIndex == 2) {
         // More tab
         [self performSegueWithIdentifier:@"MoreVC" sender:self];
     }
@@ -349,5 +351,15 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (UIViewController*) topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
+}
 
 @end
