@@ -29,9 +29,10 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) UIButton      *nextButton;
 @property (strong, nonatomic) UIButton      *previousButton;
 @property (assign, nonatomic) FullStopAudio  stopAudio;
-@property (assign, nonatomic) BOOL          autoplay;
+@property (assign, nonatomic) BOOL           autoplay;
+@property (strong, nonatomic) UIColor       *textColor;
 
-- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay;
+- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay textColor:(UIColor *)textColor;
 - (void)cleanUp;
 - (void)stopAudio:(id)sender;
 

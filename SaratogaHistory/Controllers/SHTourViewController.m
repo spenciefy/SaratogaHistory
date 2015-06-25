@@ -34,7 +34,7 @@
     audioView.layer.cornerRadius = 3.f;
     audioView.layer.masksToBounds = YES;
     
-    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 2*MARGIN - 10, 35) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO];
+    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 2*MARGIN - 10, 35) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:[UIColor whiteColor]];
     [audioView addSubview: audioPlayer];
     [self.view addSubview: audioView];
 }

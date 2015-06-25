@@ -11,9 +11,15 @@
 
 @implementation SYFullAudioPlayerView
 
-- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay {
+- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay textColor:(UIColor *)textColor {
     self = [super initWithFrame:frame];
     self.autoplay = autoplay;
+    self.textColor = textColor;
+    
+    //Set default text color to black
+    if (textColor) {
+        self.textColor = [UIColor blackColor];
+    }
     
     // Setup audioPlayer
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
@@ -72,7 +78,7 @@
     _currentTime = [UILabel new];
     _currentTime.translatesAutoresizingMaskIntoConstraints = NO;
     _currentTime.text = @"0:00";
-    _currentTime.textColor = [UIColor blackColor];
+    _currentTime.textColor = self.textColor;
     _currentTime.textAlignment = NSTextAlignmentLeft;
     _currentTime.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [self addSubview:_currentTime];
@@ -88,7 +94,7 @@
         secStr1 = [NSString stringWithFormat:@"0%d", sec1];
     }
     _endTime.text = [NSString stringWithFormat:@"-%d:%@", min1, secStr1];
-    _endTime.textColor = [UIColor blackColor];
+    _endTime.textColor = self.textColor;
     _endTime.textAlignment = NSTextAlignmentRight;
     _endTime.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
     [self addSubview:_endTime];
