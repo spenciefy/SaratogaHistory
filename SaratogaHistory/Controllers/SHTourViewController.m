@@ -9,6 +9,7 @@
 @import MapKit;
 
 #import "SHTourViewController.h"
+#define MARGIN 10
 
 @interface SHTourViewController () {
     NSArray *places;
@@ -24,6 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupMapView];
+    [self createTourAudioTrack];
+}
+
+- (void)createTourAudioTrack {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(MARGIN, MARGIN, 50, self.view.frame.size.width - 2*MARGIN)];
+    view.backgroundColor = [UIColor blueColor];
+    
+    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO];
+    audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
+    [view addSubview: audioPlayer];
+    
+    [self.view addSubview: view];
+    NSLog(@"tour audio track created");
 }
 
 - (void)setupPageView {
