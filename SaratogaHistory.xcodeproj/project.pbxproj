@@ -25,7 +25,18 @@
 		6C3C1E251B37227D008B39D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3C1E241B37227D008B39D0 /* Images.xcassets */; };
 		6C3C1E281B37227D008B39D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */; };
 		6C3C1E341B37227D008B39D0 /* SaratogaHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E331B37227D008B39D0 /* SaratogaHistoryTests.m */; };
+		6CB025541B3DB5610099BFD4 /* nextBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0254C1B3DB5610099BFD4 /* nextBlack.png */; };
+		6CB025551B3DB5610099BFD4 /* pauseBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0254D1B3DB5610099BFD4 /* pauseBlack.png */; };
+		6CB025561B3DB5610099BFD4 /* pausebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0254E1B3DB5610099BFD4 /* pausebutton.png */; };
+		6CB025571B3DB5610099BFD4 /* playBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0254F1B3DB5610099BFD4 /* playBlack.png */; };
+		6CB025581B3DB5610099BFD4 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025501B3DB5610099BFD4 /* playbutton.png */; };
+		6CB025591B3DB5610099BFD4 /* previousBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025511B3DB5610099BFD4 /* previousBlack.png */; };
+		6CB0255A1B3DB5610099BFD4 /* SaratogaHistory2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025521B3DB5610099BFD4 /* SaratogaHistory2.jpg */; };
+		6CB0255B1B3DB5610099BFD4 /* SaratogaHistoryImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025531B3DB5610099BFD4 /* SaratogaHistoryImage.jpg */; };
 		6CC660AD1B3D1B1E00D00AAF /* PlaceImages in Resources */ = {isa = PBXBuildFile; fileRef = 6CC660AC1B3D1B1E00D00AAF /* PlaceImages */; };
+		B20C8C791B3DD83200958289 /* CSRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B20C8C761B3DD83200958289 /* CSRouteAnnotation.m */; };
+		B20C8C7A1B3DD83200958289 /* CSRouteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B20C8C781B3DD83200958289 /* CSRouteView.m */; };
+		B20C8C7E1B3DDA0700958289 /* CSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B20C8C7D1B3DDA0700958289 /* CSMapAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +84,21 @@
 		6C3C1E2D1B37227D008B39D0 /* SaratogaHistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaratogaHistoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3C1E321B37227D008B39D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C3C1E331B37227D008B39D0 /* SaratogaHistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaratogaHistoryTests.m; sourceTree = "<group>"; };
+		6CB0254C1B3DB5610099BFD4 /* nextBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBlack.png; sourceTree = "<group>"; };
+		6CB0254D1B3DB5610099BFD4 /* pauseBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseBlack.png; sourceTree = "<group>"; };
+		6CB0254E1B3DB5610099BFD4 /* pausebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebutton.png; sourceTree = "<group>"; };
+		6CB0254F1B3DB5610099BFD4 /* playBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBlack.png; sourceTree = "<group>"; };
+		6CB025501B3DB5610099BFD4 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
+		6CB025511B3DB5610099BFD4 /* previousBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousBlack.png; sourceTree = "<group>"; };
+		6CB025521B3DB5610099BFD4 /* SaratogaHistory2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistory2.jpg; sourceTree = "<group>"; };
+		6CB025531B3DB5610099BFD4 /* SaratogaHistoryImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistoryImage.jpg; sourceTree = "<group>"; };
 		6CC660AC1B3D1B1E00D00AAF /* PlaceImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlaceImages; sourceTree = "<group>"; };
+		B20C8C751B3DD83200958289 /* CSRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRouteAnnotation.h; sourceTree = "<group>"; };
+		B20C8C761B3DD83200958289 /* CSRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRouteAnnotation.m; sourceTree = "<group>"; };
+		B20C8C771B3DD83200958289 /* CSRouteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRouteView.h; sourceTree = "<group>"; };
+		B20C8C781B3DD83200958289 /* CSRouteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRouteView.m; sourceTree = "<group>"; };
+		B20C8C7C1B3DDA0700958289 /* CSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMapAnnotation.h; sourceTree = "<group>"; };
+		B20C8C7D1B3DDA0700958289 /* CSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSMapAnnotation.m; sourceTree = "<group>"; };
 		BA3C52C486C8911CA9830DE3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +160,7 @@
 				4C964F9A1B37343500F59E59 /* SYFullAudioPlayerView.m */,
 				4CA24BF21B373E1200593941 /* SHImageScrollerView.h */,
 				4CA24BF31B373E1200593941 /* SHImageScrollerView.m */,
+				B20C8C7B1B3DD84300958289 /* Route Lines */,
 			);
 			name = Views;
 			path = SaratogaHistory/Views;
@@ -185,6 +211,7 @@
 				4C964F961B37343500F59E59 /* Views */,
 				0A1FEA3E1B372B2C00AFB6A3 /* Models */,
 				4C964F8F1B37340B00F59E59 /* Helpers */,
+				6CB0254B1B3DB5610099BFD4 /* Images */,
 				6CC660AC1B3D1B1E00D00AAF /* PlaceImages */,
 				6C3C1E171B37227D008B39D0 /* Supporting Files */,
 			);
@@ -216,6 +243,34 @@
 				6C3C1E321B37227D008B39D0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CB0254B1B3DB5610099BFD4 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6CB0254C1B3DB5610099BFD4 /* nextBlack.png */,
+				6CB0254D1B3DB5610099BFD4 /* pauseBlack.png */,
+				6CB0254E1B3DB5610099BFD4 /* pausebutton.png */,
+				6CB0254F1B3DB5610099BFD4 /* playBlack.png */,
+				6CB025501B3DB5610099BFD4 /* playbutton.png */,
+				6CB025511B3DB5610099BFD4 /* previousBlack.png */,
+				6CB025521B3DB5610099BFD4 /* SaratogaHistory2.jpg */,
+				6CB025531B3DB5610099BFD4 /* SaratogaHistoryImage.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B20C8C7B1B3DD84300958289 /* Route Lines */ = {
+			isa = PBXGroup;
+			children = (
+				B20C8C7C1B3DDA0700958289 /* CSMapAnnotation.h */,
+				B20C8C7D1B3DDA0700958289 /* CSMapAnnotation.m */,
+				B20C8C751B3DD83200958289 /* CSRouteAnnotation.h */,
+				B20C8C761B3DD83200958289 /* CSRouteAnnotation.m */,
+				B20C8C771B3DD83200958289 /* CSRouteView.h */,
+				B20C8C781B3DD83200958289 /* CSRouteView.m */,
+			);
+			name = "Route Lines";
 			sourceTree = "<group>";
 		};
 		B5B418F1429813456E638151 /* Pods */ = {
@@ -310,9 +365,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3C1E231B37227D008B39D0 /* Main.storyboard in Resources */,
+				6CB0255A1B3DB5610099BFD4 /* SaratogaHistory2.jpg in Resources */,
+				6CB025581B3DB5610099BFD4 /* playbutton.png in Resources */,
 				4CC917FB1B375981002AAEAF /* I Need A Dollar.mp3 in Resources */,
 				6CC660AD1B3D1B1E00D00AAF /* PlaceImages in Resources */,
 				6C3C1E281B37227D008B39D0 /* LaunchScreen.xib in Resources */,
+				6CB025571B3DB5610099BFD4 /* playBlack.png in Resources */,
+				6CB025591B3DB5610099BFD4 /* previousBlack.png in Resources */,
+				6CB025561B3DB5610099BFD4 /* pausebutton.png in Resources */,
+				6CB025551B3DB5610099BFD4 /* pauseBlack.png in Resources */,
+				6CB025541B3DB5610099BFD4 /* nextBlack.png in Resources */,
+				6CB0255B1B3DB5610099BFD4 /* SaratogaHistoryImage.jpg in Resources */,
 				6C3C1E251B37227D008B39D0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20C8C7A1B3DD83200958289 /* CSRouteView.m in Sources */,
 				4CC9180E1B375C29002AAEAF /* Reachability.m in Sources */,
 				4CC917F71B3742FF002AAEAF /* SHBaseViewController.m in Sources */,
 				4CC917F91B3742FF002AAEAF /* SHTourViewController.m in Sources */,
@@ -372,10 +436,12 @@
 				4C964F941B37340B00F59E59 /* SHPlaceManager.m in Sources */,
 				4C964F9B1B37343500F59E59 /* SYAudioPlayerView.m in Sources */,
 				6C3C1E1D1B37227D008B39D0 /* AppDelegate.m in Sources */,
+				B20C8C791B3DD83200958289 /* CSRouteAnnotation.m in Sources */,
 				4CA24BF41B373E1200593941 /* SHImageScrollerView.m in Sources */,
 				4C964F951B37340B00F59E59 /* UIView+AutoLayout.m in Sources */,
 				4CC917F81B3742FF002AAEAF /* SHPlaceViewController.m in Sources */,
 				6C3C1E1A1B37227D008B39D0 /* main.m in Sources */,
+				B20C8C7E1B3DDA0700958289 /* CSMapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

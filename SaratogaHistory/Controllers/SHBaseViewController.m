@@ -60,9 +60,9 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.segmentedControl.selectedSegmentIndex = 0;
 }
 
 - (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSError *error))completionBlock {
@@ -77,7 +77,7 @@
             placeViewController.delegate = self;
             placeViewController.expanded = NO;
             placeViewController.showsAudioView = YES;
-
+        
             [placeVCs addObject:placeViewController];
             
             if(i == places.count - 1) {
