@@ -25,18 +25,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupMapView];
+    
+    [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSError *error) {
+        placeViewControllers = [placeVCs mutableCopy];
+        [self setupPageView];
+        
+        annotations = [[NSMutableArray alloc] init];
+        annotations = [[self annotations] mutableCopy];
+        [self.mapView addAnnotations:annotations];
+        
+#warning hacky lol
+        int64_t delayInSeconds = 0.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            JPSThumbnailAnnotation *annotation = [annotations objectAtIndex:0];
+            if(annotation.view) {
+                [annotation selectAnnotationInMap:self.mapView];
+            } else {
+                int64_t delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [annotation selectAnnotationInMap:self.mapView];
+                    
+                });
+            }
+        });
+    }];
+    
     [self createTourAudioTrack];
 }
 
 - (void)createTourAudioTrack {
-    UIView *audioView = [[UIView alloc] initWithFrame:CGRectMake(MARGIN, MARGIN, self.view.frame.size.width - 2*MARGIN, 60)];
-    audioView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.9];
-    audioView.layer.cornerRadius = 3.f;
-    audioView.layer.masksToBounds = YES;
-    
-    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 2*MARGIN - 10, 35) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:[UIColor whiteColor]];
-    [audioView addSubview: audioPlayer];
-    [self.view addSubview: audioView];
+    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(MARGIN,MARGIN,self.view.frame.size.width - 2*MARGIN, 75) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:NULL];
+    self.audioPlayerView.delegate = self;
+    self.audioPlayerView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.9];
+    self.audioPlayerView.layer.cornerRadius = 10.f;
+    self.audioPlayerView.layer.masksToBounds = YES;
+    [self.view addSubview: self.audioPlayerView];
 }
 
 - (void)setupPageView {
@@ -94,6 +119,28 @@
     NSLog(@"zoom: %f",zoom);
 }
 
+- (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSError *error))completionBlock {
+    [[SHPlaceManager sharedInstance] placesWithCompletion:^(NSArray *placesArray, NSError *error) {
+        places = placesArray;
+        NSMutableArray *placeVCs = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i < places.count; i++) {
+            SHPlaceViewController *placeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SHPlaceViewController"];
+            placeViewController.pageIndex = i;
+            placeViewController.place = places[i];
+            placeViewController.delegate = self;
+            placeViewController.expanded = NO;
+            placeViewController.showsAudioView = NO;
+            
+            [placeVCs addObject:placeViewController];
+            
+            if(i == places.count - 1) {
+                completionBlock(placeVCs, nil);
+            }
+        }
+    }];
+}
+
 - (NSArray *)annotations {
     for(SHPlace *place in places) {
         int index = place.index;
@@ -112,14 +159,14 @@
 - (void)expandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 110, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
 -(void)tapExpandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 110, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
     
     UIView *temp = (UIView *)[sender view];
@@ -129,7 +176,7 @@
 - (void)shrinkCurrentPage: (id)sender {
     currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 110);
     } completion:nil];
     //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
     //    tapGesture.delegate = self;
@@ -150,10 +197,14 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        // Send the user to the Settings for this app
+        // Send the user to the Settings fo r this app
         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [[UIApplication sharedApplication] openURL:settingsURL];
     }
+}
+
+- (void)dismissTour {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Page View Controller Data Source

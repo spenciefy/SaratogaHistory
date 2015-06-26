@@ -44,7 +44,7 @@
         [self.view addSubview:audioPlayer];
         _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 130)];
     } else {
-        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 82)];
+        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, 45, self.view.frame.size.width, self.view.frame.size.height - 82)];
     }
 
     _scrollView.showsVerticalScrollIndicator = YES;

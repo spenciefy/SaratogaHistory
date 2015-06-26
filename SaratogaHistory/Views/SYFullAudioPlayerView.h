@@ -28,6 +28,8 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) UIButton      *stopButton;
 @property (strong, nonatomic) UIButton      *nextButton;
 @property (strong, nonatomic) UIButton      *previousButton;
+@property (strong, nonatomic) UIButton      *endTour;
+
 @property (assign, nonatomic) FullStopAudio  stopAudio;
 @property (assign, nonatomic) BOOL           autoplay;
 @property (strong, nonatomic) UIColor       *textColor;
@@ -42,5 +44,6 @@ typedef enum : NSUInteger {
 
 -(void)nextTrack;
 -(void)previousTrack;
+-(void)dismissTour;
 
 @end
