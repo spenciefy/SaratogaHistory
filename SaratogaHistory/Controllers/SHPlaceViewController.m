@@ -54,7 +54,7 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 170) imageArray:self.place.images captionArray:self.place.imageCaptions];
+    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 170) imageArray:self.place.images];
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];
     

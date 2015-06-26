@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_JPSThumbnailAnnotation 0
 #define COCOAPODS_VERSION_PATCH_JPSThumbnailAnnotation 0
 
+// KASlideShow
+#define COCOAPODS_POD_AVAILABLE_KASlideShow
+#define COCOAPODS_VERSION_MAJOR_KASlideShow 2
+#define COCOAPODS_VERSION_MINOR_KASlideShow 2
+#define COCOAPODS_VERSION_PATCH_KASlideShow 0
+
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1

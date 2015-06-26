@@ -4,3 +4,4 @@ pod 'Parse'
 pod 'IDMPhotoBrowser'
 pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 pod 'PureLayout'
+pod 'KASlideShow'
