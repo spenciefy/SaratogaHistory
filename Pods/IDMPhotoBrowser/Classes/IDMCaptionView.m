@@ -78,7 +78,8 @@ static const CGFloat labelPadding = 10;
     _label.backgroundColor = [UIColor clearColor];
     _label.textAlignment = NSTextAlignmentCenter;
     _label.lineBreakMode = NSLineBreakByWordWrapping;
-    _label.numberOfLines = 3;
+#warning The below line of code is not original. Has been modified.
+    _label.numberOfLines = 5;
     _label.textColor = [UIColor whiteColor];
     _label.shadowColor = [UIColor colorWithWhite:0 alpha:0.5];
     _label.shadowOffset = CGSizeMake(0, 1);
