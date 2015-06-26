@@ -23,29 +23,46 @@
     _playButton = [UIButton new];
     _playButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_playButton addTarget:self action:@selector(playAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_playButton setImage:[UIImage imageNamed:@"playBlack.png"] forState:UIControlStateNormal];
+    [_playButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
     [self addSubview:_playButton];
     
     _stopButton = [UIButton new];
     _stopButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_stopButton addTarget:self action:@selector(stopAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_stopButton setImage:[UIImage imageNamed:@"pauseBlack.png"] forState:UIControlStateNormal];
+    [_stopButton setImage:[UIImage imageNamed:@"pausebutton.png"] forState:UIControlStateNormal];
     [self.stopButton setHidden:YES];
     [self addSubview:_stopButton];
     
     _previousButton = [UIButton new];
     _previousButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_previousButton addTarget:self action:@selector(previousTrack) forControlEvents:UIControlEventTouchUpInside];
-    [_previousButton setImage:[UIImage imageNamed:@"previousBlack.png"] forState:UIControlStateNormal];
-    [self.previousButton setHidden:YES];
+    [_previousButton setTitle:@"Previous Place" forState:UIControlStateNormal];
+    [_previousButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    _previousButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _previousButton.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.f];
+    _previousButton.titleLabel.numberOfLines = 1;
     [self addSubview:_previousButton];
     
     _nextButton = [UIButton new];
     _nextButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_nextButton addTarget:self action:@selector(nextTrack) forControlEvents:UIControlEventTouchUpInside];
-    [_nextButton setImage:[UIImage imageNamed:@"nextBlack.png"] forState:UIControlStateNormal];
-    [self.nextButton setHidden:YES];
+    [_nextButton setTitle:@"Next Place" forState:UIControlStateNormal];
+    [_nextButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    _nextButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _nextButton.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.f];
+    _nextButton.titleLabel.numberOfLines = 1;
     [self addSubview:_nextButton];
+    
+    _endTour = [UIButton new];
+    _endTour.translatesAutoresizingMaskIntoConstraints = NO;
+    [_endTour addTarget:self action:@selector(dismissTour) forControlEvents:UIControlEventTouchUpInside];
+    [_endTour setTitle:@"End Tour" forState:UIControlStateNormal];
+    [_endTour setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    _endTour.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _endTour.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:12.f];
+    _endTour.titleLabel.numberOfLines = 1;
+    [self addSubview:_endTour];
+    
     
     // Setup seekbar
     _seekBar = [UISlider new];
@@ -98,40 +115,43 @@
      *  pin the play and stop buttons to the top of the view.
      */
     
-    
-    [self.seekBar pinToSuperviewEdges:JRTViewPinBottomEdge inset:10];
-    [self.seekBar constrainToWidth:self.frame.size.width-30];
-    [self.seekBar pinToSuperviewEdges:JRTViewPinLeftEdge inset:25];
-    
-    [self.endTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.endTime pinToSuperviewEdges:JRTViewPinRightEdge inset:10];
-    [self.endTime constrainToWidth:30];
-    
-    [self.currentTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.currentTime pinToSuperviewEdges:JRTViewPinLeftEdge inset:10];
-    [self.currentTime constrainToWidth:30];
-    
-    [self.playButton pinAttribute:NSLayoutAttributeCenterX toAttribute:NSLayoutAttributeCenterX ofItem:self];
-    [self.playButton pinToSuperviewEdges:JRTViewPinTopEdge inset:10];
-    [self.playButton constrainToWidth:50.0];
-    [self.playButton constrainToHeight:50.0];
+    [self.playButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
+    [self.playButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:12];
+    [self.playButton constrainToWidth:23.0];
+    [self.playButton constrainToHeight:23.0];
     
     [self.stopButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.stopButton pinToSuperviewEdges:JRTViewPinTopEdge inset:10];
-    [self.stopButton constrainToWidth:50.0];
-    [self.stopButton constrainToHeight:50.0];
+    [self.stopButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:8];
+    [self.stopButton constrainToWidth:23.0];
+    [self.stopButton constrainToHeight:23.0];
     
-    [self.nextButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.playButton];
-    [self.nextButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:5];
-    [self.nextButton pinEdges:JRTViewPinLeftEdge toSameEdgesOfView:self.playButton inset:30];
-    [self.nextButton constrainToWidth:50.0];
-    [self.nextButton constrainToHeight:50.0];
+    [self.currentTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
+    [self.currentTime pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.playButton withConstant:9.f];
+    [self.currentTime constrainToWidth:30];
+    [self.currentTime constrainToHeight:20];
     
-    [self.previousButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.playButton];
-    [self.previousButton pinEdges:JRTViewPinRightEdge toSameEdgesOfView:self.playButton inset:30];
-    [self.previousButton constrainToWidth:50.0];
-    [self.previousButton constrainToHeight:50.0];
+    [self.seekBar pinToSuperviewEdges:JRTViewPinTopEdge inset:13];
+    [self.seekBar constrainToWidth:self.frame.size.width-120];
+    [self.seekBar pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.currentTime withConstant:2.f];
     
+    [self.endTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
+    [self.endTime pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.seekBar withConstant:5.f];
+    [self.endTime constrainToWidth:30];
+    
+    [self.previousButton pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:13.f];
+    [self.previousButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:15];
+    [self.previousButton constrainToHeight:23.0];
+
+    [self.nextButton pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:13.f];
+    [self.nextButton pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.previousButton withConstant:10.f];
+    [self.nextButton constrainToHeight:23.0];
+
+    [self.endTour pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:13.f];
+    [self.endTour pinToSuperviewEdges:JRTViewPinRightEdge inset:20.f];
+    [self.endTour constrainToHeight:23.0];
+    [self.endTour constrainToWidth:50.f];
+
+  
     //Autoplay
     if (self.autoplay == YES) {
         self.playButton.hidden = YES;
@@ -236,6 +256,12 @@
 - (void)previousTrack {
     if ([_delegate respondsToSelector:@selector(previousTrack)]) {
         [_delegate previousTrack];
+    }
+}
+
+- (void)dismissTour {
+    if ([_delegate respondsToSelector:@selector(dismissTour)]) {
+        [_delegate dismissTour];
     }
 }
 

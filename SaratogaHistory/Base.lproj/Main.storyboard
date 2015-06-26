@@ -68,7 +68,7 @@
                     <connections>
                         <outlet property="mapView" destination="5Q0-2a-mFI" id="jvg-y2-i4y"/>
                         <outlet property="segmentedControl" destination="dP6-E7-oGl" id="W9B-0g-0h4"/>
-                        <segue destination="m9J-Zx-GvA" kind="modal" identifier="ModalTourVC" id="6yd-Fl-cdG"/>
+                        <segue destination="m9J-Zx-GvA" kind="modal" identifier="ModalTourVC" modalTransitionStyle="flipHorizontal" id="6yd-Fl-cdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HI6-bc-bT5" sceneMemberID="firstResponder"/>
