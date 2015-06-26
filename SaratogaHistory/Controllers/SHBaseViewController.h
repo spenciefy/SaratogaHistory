@@ -22,4 +22,5 @@
 
 - (IBAction)resetMapRegion:(id)sender;
 - (IBAction)segmentedControlAction:(id)sender;
+
 @end
