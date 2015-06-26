@@ -77,7 +77,7 @@
             placeViewController.delegate = self;
             placeViewController.expanded = NO;
             placeViewController.showsAudioView = YES;
-
+        
             [placeVCs addObject:placeViewController];
             
             if(i == places.count - 1) {
