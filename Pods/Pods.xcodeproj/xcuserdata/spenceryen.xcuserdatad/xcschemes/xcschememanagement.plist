@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-IDMPhotoBrowser.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,42 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02E4D4954F7100F65C617846</key>
+		<key>26BFEB1671C1C6EB23EA323E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>152957046D17846583F9E5EF</key>
+		<key>3380BD643510A0DAE3EDE683</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2BFB659A8344A1CD53CC626F</key>
+		<key>42DF816B7AB9CC7B569AE9FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3118CAB0AF1FC64F649A4D41</key>
+		<key>960DB4DF51BD18A2471BD066</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41520B899CBAF1D2C232F964</key>
+		<key>A9DEA71668000BFCA25F4791</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>493A6F4EC3180D0FDD47B4BD</key>
+		<key>AEC5873883486E5003474692</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4987B6D765759B228C460FCE</key>
+		<key>B5E91CE5730A0DBA28E4F197</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97FD16A9E334F3FC32C061B5</key>
+		<key>BB68805EFE8715309756147F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1BED7F3C49ED2A2E61B5E26</key>
 		<dict>
 			<key>primary</key>
 			<true/>

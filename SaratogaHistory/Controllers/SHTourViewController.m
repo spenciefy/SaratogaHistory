@@ -35,7 +35,8 @@
     audioView.layer.masksToBounds = YES;
     
     SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 2*MARGIN - 10, 35) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO];
-    [audioView addSubview: audioPlayer];
+    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 2*MARGIN - 10, 35) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO];
+    [audioView addSubview: self.audioPlayerView];
     [self.view addSubview: audioView];
 }
 

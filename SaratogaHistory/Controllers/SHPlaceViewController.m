@@ -102,35 +102,19 @@
 }
 
 - (void)SHImageScrollerViewDidTap:(NSUInteger)index {
-    NSLog(@"tapped image");
 
-    // Filepath array
-    NSDictionary *images = @{
-                             @"1":[NSArray arrayWithObjects:
-                                   [UIImage imageNamed:@"../Images/01/"],
-                                   [UIImage imageNamed:@"blah"], nil],
-                             @"2":[NSArray arrayWithObjects:
-                                   [UIImage imageNamed:@"blah"],
-                                   [UIImage imageNamed:@"blah"], nil]
-                             };
-    
-    // IDMPhotot array
-    NSArray *photos = [IDMPhoto photosWithImages:images[@"0"]];
+    // IDMPhoto array
+    NSArray *IDMphotos = [IDMPhoto photosWithFilePaths:self.place.images];
     // Iterate through IDMPhoto objects and add captions
-    int i = 0;
-    for (IDMPhoto *photo in photos) {
-        photo.caption = [self.place.imageCaptions objectAtIndex:i];
-#warning Find a better way to iterate through captions.
-        if (i < 1) {
-            i++;
-        }
+    for (int i = 0; i < IDMphotos.count; i++){
+        IDMPhoto *photo = IDMphotos[i];
+        photo.caption = self.place.imageCaptions[i];
     }
     
-    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:IDMphotos];
     browser.displayActionButton = NO;
     browser.displayArrowButton = NO;
     [self presentViewController:browser animated:YES completion:nil];
-
 }
 
 @end

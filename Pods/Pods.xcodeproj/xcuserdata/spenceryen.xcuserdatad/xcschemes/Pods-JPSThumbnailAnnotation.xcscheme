@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "152957046D17846583F9E5EF"
+               BlueprintIdentifier = "A9DEA71668000BFCA25F4791"
                BuildableName = "libPods-JPSThumbnailAnnotation.a"
                BlueprintName = "Pods-JPSThumbnailAnnotation"
                ReferencedContainer = "container:Pods.xcodeproj">

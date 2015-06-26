@@ -26,13 +26,40 @@
         self.audioURLAsset = audioAsset;
         
         self.annotationThumbnail = [[JPSThumbnail alloc] init];
-        UIImage *image = [UIImage imageWithData:[imgs firstObject]];
-        self.annotationThumbnail.image = image;
+        self.annotationThumbnail.image = [self imageWithNumber:self.index + 1 tintedColor:[UIColor colorWithWhite:0.5f alpha:0.8f] size:CGSizeMake(80.f, 80.f)];
         self.annotationThumbnail.title = self.placeTitle;
         self.annotationThumbnail.subtitle = [self.imageCaptions firstObject];
         self.annotationThumbnail.coordinate = CLLocationCoordinate2DMake(self.lat, self.lng);
     }    
     return self;
+}
+
+- (UIImage *)imageWithNumber:(NSInteger)number
+                    tintedColor:(UIColor *)tintColor
+                           size:(CGSize)size
+{
+    UIView *coloredView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    coloredView.backgroundColor = tintColor;
+    
+    UILabel *numberLabel = [UILabel new];
+    numberLabel.text = [NSString stringWithFormat:@"%li", (long)number];
+    numberLabel.textColor = [UIColor whiteColor];
+    
+    CGFloat fontSize = size.width * 0.75;
+    numberLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:fontSize];
+    [numberLabel sizeToFit];
+    [coloredView addSubview:numberLabel];
+    
+    numberLabel.center = coloredView.center;
+    
+    UIGraphicsBeginImageContextWithOptions(coloredView.bounds.size, NO, 0.0);
+    
+    [coloredView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 @end

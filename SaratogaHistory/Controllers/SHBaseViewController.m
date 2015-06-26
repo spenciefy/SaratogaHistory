@@ -26,18 +26,11 @@
     NSMutableArray *annotations;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    [self.locationManager startUpdatingLocation];
-    
+    [self setupLocationManager];
+
     [self setupMapView];
     
     [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSError *error) {
@@ -65,18 +58,6 @@
             }
         });
     }];
-    
-    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
-    NSArray *captions = @[@"history museum so cool", @"wasai so pro"];
-    NSData *imagesData = [NSKeyedArchiver archivedDataWithRootObject:images];
-    
-    PFFile *imageFile = [PFFile fileWithData:imagesData];
-//    
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"yXIsQsu7jD"];
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"58HmKB5Ow6"];
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"1DcZ8K3xpr"];
-//    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,7 +88,6 @@
 }
 
 - (void)setupPageView {
-    // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SHPageViewController"];
     self.pageViewController.dataSource = self;
     self.pageViewController.delegate = self;
@@ -117,15 +97,14 @@
 
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
     self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height + 10, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
 
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
-    [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
-    } completion:nil];
+    [self shrinkCurrentPage:self];
     
     UISwipeGestureRecognizer *pageSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shrinkCurrentPage:)];
     UISwipeGestureRecognizer *pageSwipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
@@ -205,6 +184,14 @@
 //    [temp addGestureRecognizer: tapGesture];
 }
 
+- (void)hideCurrentPage: (id)sender {
+    currentPlaceVC.expanded = NO;
+    [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height - 70, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+    } completion:nil];
+
+}
+
 - (void)flipToPage:(int)index {
     NSArray *viewControllers  = [NSArray arrayWithObjects:placeViewControllers[index], nil];
     
@@ -215,14 +202,15 @@
     }
 }
 
-- (void)requestAlwaysAuthorization
+- (void)setupLocationManager
 {
+    self.locationManager = [[CLLocationManager alloc] init];
+
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     
     // If the status is denied or only granted for when in use, display an alert
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied) {
-        NSString *title;
-        title = (status == kCLAuthorizationStatusDenied) ? @"Location services are off" : @"Background location is not enabled";
+    if (status == kCLAuthorizationStatusDenied) {
+        NSString *title = @"Location services are off";
         NSString *message = @"To use background location you must turn on 'Always' in the Location Services Settings";
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
@@ -234,8 +222,12 @@
     }
     // The user has not enabled any location services. Request background authorization.
     else if (status == kCLAuthorizationStatusNotDetermined) {
-        [self.locationManager requestAlwaysAuthorization];
+        [self.locationManager requestWhenInUseAuthorization];
     }
+    
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -294,7 +286,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView placeView:(SHPlaceViewController *)placeVC{
     if((scrollView.contentOffset.y < -30) && placeVC.expanded) {
-        [self shrinkCurrentPage:self];
+        [self hideCurrentPage:self];
     } else if ((scrollView.contentOffset.y > 100) && !placeVC.expanded) {
         [self expandCurrentPage:self];
     }
