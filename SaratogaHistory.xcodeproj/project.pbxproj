@@ -33,7 +33,6 @@
 		6CB025591B3DB5610099BFD4 /* previousBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025511B3DB5610099BFD4 /* previousBlack.png */; };
 		6CB0255A1B3DB5610099BFD4 /* SaratogaHistory2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025521B3DB5610099BFD4 /* SaratogaHistory2.jpg */; };
 		6CB0255B1B3DB5610099BFD4 /* SaratogaHistoryImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CB025531B3DB5610099BFD4 /* SaratogaHistoryImage.jpg */; };
-		6CB025611B3DE3E00099BFD4 /* CSImageAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CB025601B3DE3E00099BFD4 /* CSImageAnnotationView.m */; };
 		6CC660AD1B3D1B1E00D00AAF /* PlaceImages in Resources */ = {isa = PBXBuildFile; fileRef = 6CC660AC1B3D1B1E00D00AAF /* PlaceImages */; };
 		B20C8C791B3DD83200958289 /* CSRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B20C8C761B3DD83200958289 /* CSRouteAnnotation.m */; };
 		B20C8C7A1B3DD83200958289 /* CSRouteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B20C8C781B3DD83200958289 /* CSRouteView.m */; };
@@ -93,8 +92,6 @@
 		6CB025511B3DB5610099BFD4 /* previousBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousBlack.png; sourceTree = "<group>"; };
 		6CB025521B3DB5610099BFD4 /* SaratogaHistory2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistory2.jpg; sourceTree = "<group>"; };
 		6CB025531B3DB5610099BFD4 /* SaratogaHistoryImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistoryImage.jpg; sourceTree = "<group>"; };
-		6CB0255F1B3DE3E00099BFD4 /* CSImageAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSImageAnnotationView.h; sourceTree = "<group>"; };
-		6CB025601B3DE3E00099BFD4 /* CSImageAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSImageAnnotationView.m; sourceTree = "<group>"; };
 		6CC660AC1B3D1B1E00D00AAF /* PlaceImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlaceImages; sourceTree = "<group>"; };
 		B20C8C751B3DD83200958289 /* CSRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRouteAnnotation.h; sourceTree = "<group>"; };
 		B20C8C761B3DD83200958289 /* CSRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSRouteAnnotation.m; sourceTree = "<group>"; };
@@ -266,8 +263,6 @@
 		B20C8C7B1B3DD84300958289 /* Route Lines */ = {
 			isa = PBXGroup;
 			children = (
-				6CB0255F1B3DE3E00099BFD4 /* CSImageAnnotationView.h */,
-				6CB025601B3DE3E00099BFD4 /* CSImageAnnotationView.m */,
 				B20C8C7C1B3DDA0700958289 /* CSMapAnnotation.h */,
 				B20C8C7D1B3DDA0700958289 /* CSMapAnnotation.m */,
 				B20C8C751B3DD83200958289 /* CSRouteAnnotation.h */,
@@ -433,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B20C8C7A1B3DD83200958289 /* CSRouteView.m in Sources */,
-				6CB025611B3DE3E00099BFD4 /* CSImageAnnotationView.m in Sources */,
 				4CC9180E1B375C29002AAEAF /* Reachability.m in Sources */,
 				4CC917F71B3742FF002AAEAF /* SHBaseViewController.m in Sources */,
 				4CC917F91B3742FF002AAEAF /* SHTourViewController.m in Sources */,
