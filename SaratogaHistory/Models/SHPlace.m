@@ -26,13 +26,7 @@
         self.audioURLAsset = audioAsset;
         
         self.annotationThumbnail = [[JPSThumbnail alloc] init];
-        UIColor *tintColor;
-        if(self.index == 0 || self.index == 24) {
-            tintColor = (self.index == 0) ? [UIColor greenColor] : [UIColor redColor];
-        } else {
-            tintColor = [UIColor colorWithWhite:0.5f alpha:0.8f];
-        }
-        self.annotationThumbnail.image = [self imageWithNumber:self.index + 1 tintedColor:tintColor size:CGSizeMake(80.f, 80.f)];
+        self.annotationThumbnail.image = [self imageWithNumber:self.index + 1 tintedColor:[UIColor colorWithWhite:0.5f alpha:0.8f] size:CGSizeMake(80.f, 80.f)];
         self.annotationThumbnail.title = self.placeTitle;
         self.annotationThumbnail.subtitle = [self.imageCaptions firstObject];
         self.annotationThumbnail.coordinate = CLLocationCoordinate2DMake(self.lat, self.lng);

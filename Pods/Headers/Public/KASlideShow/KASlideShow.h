@@ -1,1 +1,0 @@
-../../../KASlideShow/KASlideShow/KASlideShow.h

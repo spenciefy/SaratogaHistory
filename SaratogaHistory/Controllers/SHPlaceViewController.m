@@ -37,14 +37,14 @@
     _captionLabel.text = self.place.placeTitle;
     [self.view addSubview:_captionLabel];
     
-    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURLAsset.URL autoplay:NO textColor: NULL];
+    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURLAsset.URL autoplay:NO];
     audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
     
     if(self.showsAudioView) {
         [self.view addSubview:audioPlayer];
         _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 130)];
     } else {
-        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, 45, self.view.frame.size.width, self.view.frame.size.height - 82)];
+        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 82)];
     }
 
     _scrollView.showsVerticalScrollIndicator = YES;
@@ -54,7 +54,7 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 170) imageArray:self.place.images];
+    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, 414, 170) imageArray:self.place.images captionArray:self.place.imageCaptions];
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];
     
