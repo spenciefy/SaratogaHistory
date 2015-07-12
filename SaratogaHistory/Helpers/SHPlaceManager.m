@@ -7,7 +7,6 @@
 //
 
 #import "SHPlaceManager.h"
-#import <Parse/Parse.h>
 #import "Reachability.h"
 
 @implementation SHPlaceManager
@@ -25,74 +24,41 @@
 - (void)placesWithCompletion:(void (^)(NSArray *placesArray, NSError *error))completionBlock {
 
     NSMutableArray *places = [[NSMutableArray alloc] init];
-    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
     
-    if(![self hasNetwork]) {
-        [query fromLocalDatastore];
-    }
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"SaratogaPlaces" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSArray *placesJSON = [json objectForKey:@"results"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        for (PFObject *object in objects) {
-           
-            [object pinInBackground];
-            float lat = [object[@"Latitude"] floatValue];
-            float lng = [object[@"Longitude"] floatValue];
-            int index = [object[@"Index"] intValue];
-            
-            NSString *directoryString = [NSString stringWithFormat:@"PlaceImages/%d", index + 1];
-            
-            NSArray *photoPathArray = [[NSBundle mainBundle] pathsForResourcesOfType:@".JPG" inDirectory:directoryString];
-            NSMutableArray *images = [[NSMutableArray alloc] initWithCapacity:photoPathArray.count];
-            NSMutableArray *captions = [[NSMutableArray alloc] initWithCapacity:photoPathArray.count];
-            NSString *placeholderCaption = @"This is a long placeholder caption until we write out real captions for each of the images. We just need to see what long captions look like.";
-            
-            for (NSString *path in photoPathArray) {
-                [images addObject:path];
-                [captions addObject:placeholderCaption];
-            }
-            
-
-            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[[NSBundle mainBundle] URLForResource:object[@"audioFileName"] withExtension:@"mp3"] options:nil];
-            SHPlace *place = [[SHPlace alloc]initWithIndex:index title:object[@"Title"] lat:lat lng:lng address:object[@"Address"] descriptionText:object[@"Description"] images:images imageCaptions:captions audio:asset];
-            [places addObject:place];
+    for (NSDictionary *placeDictionary in placesJSON) {
         
-            if(places.count == objects.count) {
-                NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES]];
-                NSArray *sortedArray = [places sortedArrayUsingDescriptors:sortDescriptors];
-                
-                completionBlock(sortedArray, nil);
-            }
+        float lat = [placeDictionary[@"Latitude"] floatValue];
+        float lng = [placeDictionary[@"Longitude"] floatValue];
+        int index = [placeDictionary[@"Index"] intValue];
+        
+        NSString *directoryString = [NSString stringWithFormat:@"PlaceImages/%d", index + 1];
+        
+        NSArray *photoPathArray = [[NSBundle mainBundle] pathsForResourcesOfType:@".JPG" inDirectory:directoryString];
+        NSMutableArray *images = [[NSMutableArray alloc] initWithCapacity:photoPathArray.count];
+        NSMutableArray *captions = [[NSMutableArray alloc] initWithCapacity:photoPathArray.count];
+        NSString *placeholderCaption = @"This is a long placeholder caption until we write out real captions for each of the images. We just need to see what long captions look like.";
+        
+        for (NSString *path in photoPathArray) {
+            [images addObject:path];
+            [captions addObject:placeholderCaption];
         }
-    }];
-}
-
-- (void)uploadPhotos:(PFFile *)photos withCaptions:(NSArray *)captions toObjectID:(NSString *)oID {
-    PFQuery *query = [PFQuery queryWithClassName:@"Places"];
-    [query getObjectInBackgroundWithId:oID block:^(PFObject *place, NSError *error) {
-        place[@"Images"] = photos;
-        place[@"ImageCaptions"] = captions;
-        [place saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded)
-                NSLog(@"succeeded");
-            if (error)
-                NSLog(@"error: %@", error.description);
-        }];
-    }];
-}
-
-- (BOOL)hasNetwork {
-    Reachability *myNetwork = [Reachability reachabilityWithHostname:@"google.com"];
-    NetworkStatus myStatus = [myNetwork currentReachabilityStatus];
-    
-    if(myStatus == NotReachable) {
-        return NO;
-    } else{
-        if(myStatus == ReachableViaWiFi) {
-            return YES;
+        
+        AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[[NSBundle mainBundle] URLForResource:placeDictionary[@"audioFileName"] withExtension:@"mp3"] options:nil];
+        SHPlace *place = [[SHPlace alloc]initWithIndex:index title:placeDictionary[@"Title"] lat:lat lng:lng address:placeDictionary[@"Address"] descriptionText:placeDictionary[@"Description"] images:images imageCaptions:captions audio:asset];
+        [places addObject:place];
+        
+        if(places.count == placesJSON.count) {
+            NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES]];
+            NSArray *sortedArray = [places sortedArrayUsingDescriptors:sortDescriptors];
+            
+            completionBlock(sortedArray, nil);
         }
     }
-    return NO;
 }
-
 
 @end
