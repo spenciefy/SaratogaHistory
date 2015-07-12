@@ -54,13 +54,13 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, 414, 170) imageArray:self.place.images captionArray:self.place.imageCaptions];
+    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images captionArray:self.place.imageCaptions];
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];
     
     _textView = [[UITextView alloc] initWithFrame: self.view.frame];
     NSAttributedString *text = [[NSAttributedString alloc] initWithString:self.place.descriptionText attributes:@{NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Regular" size:17]}];
-    _textView.frame = CGRectMake(8, imageScroller.frame.origin.y + imageScroller.frame.size.height + 10, self.view.frame.size.width - 16, [self textViewHeightForAttributedText:text andWidth:self.view.frame.size.width-16]);
+    _textView.frame = CGRectMake(8, imageScroller.frame.origin.y + imageScroller.frame.size.height + 7, self.view.frame.size.width - 16, [self textViewHeightForAttributedText:text andWidth:self.view.frame.size.width-16]);
     _textView.scrollEnabled = NO;
     _textView.editable = NO;
     _textView.text = self.place.descriptionText;

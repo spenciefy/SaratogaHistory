@@ -25,6 +25,7 @@
 		6C3C1E251B37227D008B39D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3C1E241B37227D008B39D0 /* Images.xcassets */; };
 		6C3C1E281B37227D008B39D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */; };
 		6C3C1E341B37227D008B39D0 /* SaratogaHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E331B37227D008B39D0 /* SaratogaHistoryTests.m */; };
+		6CC3A5F11B52DE820000BAC7 /* SaratogaPlaces.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CC3A5F01B52DE820000BAC7 /* SaratogaPlaces.json */; };
 		6CC660AD1B3D1B1E00D00AAF /* PlaceImages in Resources */ = {isa = PBXBuildFile; fileRef = 6CC660AC1B3D1B1E00D00AAF /* PlaceImages */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		6C3C1E2D1B37227D008B39D0 /* SaratogaHistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaratogaHistoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3C1E321B37227D008B39D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C3C1E331B37227D008B39D0 /* SaratogaHistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaratogaHistoryTests.m; sourceTree = "<group>"; };
+		6CC3A5F01B52DE820000BAC7 /* SaratogaPlaces.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SaratogaPlaces.json; sourceTree = "<group>"; };
 		6CC660AC1B3D1B1E00D00AAF /* PlaceImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlaceImages; sourceTree = "<group>"; };
 		BA3C52C486C8911CA9830DE3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +188,7 @@
 				4C964F8F1B37340B00F59E59 /* Helpers */,
 				6CC660AC1B3D1B1E00D00AAF /* PlaceImages */,
 				6C3C1E241B37227D008B39D0 /* Images.xcassets */,
+				6CC3A5F01B52DE820000BAC7 /* SaratogaPlaces.json */,
 				6C3C1E171B37227D008B39D0 /* Supporting Files */,
 			);
 			path = SaratogaHistory;
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3C1E231B37227D008B39D0 /* Main.storyboard in Resources */,
+				6CC3A5F11B52DE820000BAC7 /* SaratogaPlaces.json in Resources */,
 				4CC917FB1B375981002AAEAF /* I Need A Dollar.mp3 in Resources */,
 				6CC660AD1B3D1B1E00D00AAF /* PlaceImages in Resources */,
 				6C3C1E281B37227D008B39D0 /* LaunchScreen.xib in Resources */,
