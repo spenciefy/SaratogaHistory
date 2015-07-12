@@ -29,11 +29,10 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) UISlider      *seekBar;
 @property (strong, nonatomic) UIButton      *playButton;
 @property (strong, nonatomic) UIButton      *stopButton;
-@property (assign, nonatomic) StopAudio     stopAudio;
+@property (assign, nonatomic) StopAudio          stopAudio;
 @property (assign, nonatomic) BOOL          autoplay;
-@property (strong, nonatomic) UIColor       *textColor;
 
-- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay textColor:(UIColor *)textColor;
+- (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay;
 - (void)cleanUp;
 - (void)stopAudio:(id)sender;
 
