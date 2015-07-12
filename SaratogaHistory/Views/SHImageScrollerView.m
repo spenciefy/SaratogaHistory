@@ -12,13 +12,13 @@
 @synthesize delegate;
 
 -(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr captionArray:(NSArray *)capArr; {
+   
     if ((self=[super initWithFrame:frame])) {
-        
         self.userInteractionEnabled = YES;
         
         captionArray = capArr;
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:imgArr];
-        [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] -1)] atIndex:0];
+        [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] - 1)] atIndex:0];
         [tempArray addObject: [imgArr objectAtIndex:0]];
         imageArray = [NSArray arrayWithArray:tempArray];
         
@@ -35,22 +35,16 @@
         
         for (int i = 0; i < pageCount; i++) {
             UIImageView *imgView=[[UIImageView alloc] init];
-            imgView.contentMode = UIViewContentModeScaleAspectFill;
-            
-            UIImage *image = [self scaleImage:[UIImage imageWithContentsOfFile:imageArray[i]] toSize:viewSize.size];
-//            //CGSize newSize = CGSizeMake(frame., scrollView.frame.size.width);
-//            UIGraphicsBeginImageContext(frame.size);
-//            [image drawInRect:CGRectMake(0,0,frame.size.width,frame.size.height+200)];
-//            UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-//            UIGraphicsEndImageContext(); 
-            [imgView setImage:image];
-            
-            [imgView setFrame:CGRectMake(viewSize.size.width * i, 0, viewSize.size.width * i, viewSize.size.height)];
+            [imgView setImage:[UIImage imageWithContentsOfFile:imageArray[i]]];
+            [imgView setFrame:CGRectMake(viewSize.size.width * i, 0, viewSize.size.width, viewSize.size.height)];
+
             imgView.tag = i;
-            UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagePressed:)];
+            imgView.contentMode = UIViewContentModeScaleAspectFill;
+
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagePressed:)];
             [tap setNumberOfTapsRequired:1];
             [tap setNumberOfTouchesRequired:1];
-            imgView.userInteractionEnabled=YES;
+            imgView.userInteractionEnabled = YES;
             [imgView addGestureRecognizer:tap];
             [scrollView addSubview:imgView];
         }
@@ -58,25 +52,26 @@
         [scrollView setContentOffset:CGPointMake(viewSize.size.width, 0)];
         [self addSubview:scrollView];
         
-        UIView *noteView=[[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-33,self.bounds.size.width,33)];
+        UIView *noteView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-33,self.bounds.size.width,33)];
         [noteView setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.8]];
         
-        float pageControlWidth=(pageCount-2)*10.0f+40.f;
-        float pagecontrolHeight=20.0f;
+        float pageControlWidth = (pageCount-2) * 10.0f + 40.f;
+        float pagecontrolHeight = 20.0f;
         pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake((self.frame.size.width-pageControlWidth),6, pageControlWidth, pagecontrolHeight)];
-        pageControl.currentPage=0;
-        pageControl.numberOfPages=(pageCount-2);
+        pageControl.currentPage = 0;
+        pageControl.numberOfPages = (pageCount-2);
         [noteView addSubview:pageControl];
         
-        noteTitle=[[UILabel alloc] initWithFrame:CGRectMake(5, 6, self.frame.size.width-pageControlWidth-15, 20)];
+        noteTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 6, self.frame.size.width-pageControlWidth-15, 20)];
         [noteTitle setText:[capArr objectAtIndex:0]];
         [noteTitle setBackgroundColor:[UIColor clearColor]];
         [noteTitle setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:14]];
-        noteTitle.textColor=  [UIColor whiteColor];
+        noteTitle.textColor = [UIColor whiteColor];
         [noteView addSubview:noteTitle];
         
         [self addSubview:noteView];
     }
+    
     return self;
 }
 
@@ -111,7 +106,7 @@
     }
 }
 
-- (UIImage*) scaleImage:(UIImage*)image toSize:(CGSize)newSize {
+- (UIImage*)scaleImage:(UIImage*)image toSize:(CGSize)newSize {
     CGSize scaledSize = newSize;
     float scaleFactor = 1.0;
     if( image.size.width > image.size.height ) {

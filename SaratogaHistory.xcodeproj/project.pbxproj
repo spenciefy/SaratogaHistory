@@ -181,11 +181,11 @@
 				6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */,
 				6C3C1E211B37227D008B39D0 /* Main.storyboard */,
 				4CA24BE51B373AC000593941 /* Controllers */,
-				6C3C1E241B37227D008B39D0 /* Images.xcassets */,
 				4C964F961B37343500F59E59 /* Views */,
 				0A1FEA3E1B372B2C00AFB6A3 /* Models */,
 				4C964F8F1B37340B00F59E59 /* Helpers */,
 				6CC660AC1B3D1B1E00D00AAF /* PlaceImages */,
+				6C3C1E241B37227D008B39D0 /* Images.xcassets */,
 				6C3C1E171B37227D008B39D0 /* Supporting Files */,
 			);
 			path = SaratogaHistory;
