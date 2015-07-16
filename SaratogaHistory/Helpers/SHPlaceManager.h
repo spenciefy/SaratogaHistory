@@ -16,6 +16,4 @@
 
 - (void)placesWithCompletion:(void (^)(NSArray *placesArray, NSError *error))completionBlock;
 
-- (void)uploadPhotos:(PFFile *)photos withCaptions:(NSArray *)captions toObjectID:(NSString *)oID;
-
 @end

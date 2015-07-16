@@ -9,6 +9,7 @@
 @import MapKit;
 
 #import "SHTourViewController.h"
+
 #define MARGIN 25
 
 @interface SHTourViewController () {
@@ -16,6 +17,8 @@
     NSMutableArray *placeViewControllers;
     SHPlaceViewController *currentPlaceVC;
     NSMutableArray *annotations;
+    NSMutableArray *coordinates;
+    NSMutableDictionary* _routeViews;
 }
 
 @end
@@ -25,18 +28,58 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupMapView];
+    _routeViews = [[NSMutableDictionary alloc] init];
+    
+    [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSArray *coords, NSError *error) {
+        placeViewControllers = [placeVCs mutableCopy];
+        [self setupPageView];
+        
+        coordinates = [[NSMutableArray alloc] init];
+        for(int idx = 0; idx < coords.count; idx++)
+        {
+            // break the string down even further to latitude and longitude fields.
+            NSString* currentPointString = [coords objectAtIndex:idx];
+            NSArray* latLonArr = [currentPointString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
+            
+            CLLocationDegrees latitude  = [[latLonArr objectAtIndex:0] doubleValue];
+            CLLocationDegrees longitude = [[latLonArr objectAtIndex:1] doubleValue];
+            
+            CLLocation* currentLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+            [coordinates addObject:currentLocation];
+        }
+        
+        annotations = [[NSMutableArray alloc] init];
+        annotations = [[self annotations] mutableCopy];
+        [self.mapView addAnnotations:annotations];
+        
+#warning hacky lol
+        int64_t delayInSeconds = 0.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            JPSThumbnailAnnotation *annotation = [annotations objectAtIndex:0];
+            if(annotation.view) {
+                [annotation selectAnnotationInMap:self.mapView];
+            } else {
+                int64_t delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [annotation selectAnnotationInMap:self.mapView];
+                    
+                });
+            }
+        });
+    }];
+    
     [self createTourAudioTrack];
 }
 
 - (void)createTourAudioTrack {
-    UIView *audioView = [[UIView alloc] initWithFrame:CGRectMake(MARGIN, MARGIN, self.view.frame.size.width - 2*MARGIN, 60)];
-    audioView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.9];
-    audioView.layer.cornerRadius = 3.f;
-    audioView.layer.masksToBounds = YES;
-    
-    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 2*MARGIN - 10, 35) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO];
-    [audioView addSubview: self.audioPlayerView];
-    [self.view addSubview: audioView];
+    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(MARGIN,MARGIN,self.view.frame.size.width - 2*MARGIN, 75) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:NULL];
+    self.audioPlayerView.delegate = self;
+    self.audioPlayerView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.9];
+    self.audioPlayerView.layer.cornerRadius = 10.f;
+    self.audioPlayerView.layer.masksToBounds = YES;
+    [self.view addSubview: self.audioPlayerView];
 }
 
 - (void)setupPageView {
@@ -91,7 +134,32 @@
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     }
     double zoom = log2(360 * ((self.mapView.frame.size.width/256) / self.mapView.region.span.longitudeDelta));
-    NSLog(@"zoom: %f",zoom);
+}
+
+- (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSArray* coords, NSError *error))completionBlock {
+    [[SHPlaceManager sharedInstance] placesWithCompletion:^(NSArray *placesArray, NSError *error) {
+        places = placesArray;
+        NSMutableArray *placeVCs = [[NSMutableArray alloc] init];
+        NSMutableArray *coords = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i < places.count; i++) {
+            SHPlaceViewController *placeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SHPlaceViewController"];
+            placeViewController.pageIndex = i;
+            placeViewController.place = places[i];
+            placeViewController.delegate = self;
+            placeViewController.expanded = NO;
+            placeViewController.showsAudioView = NO;
+            
+            SHPlace *place = places[i];
+            [coords addObject: [NSString stringWithFormat: @"%f,%f", place.lat, place.lng]];
+            
+            [placeVCs addObject:placeViewController];
+            
+            if(i == places.count - 1) {
+                completionBlock(placeVCs, coords, nil);
+            }
+        }
+    }];
 }
 
 - (NSArray *)annotations {
@@ -112,14 +180,14 @@
 - (void)expandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 110, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
 -(void)tapExpandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 110, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
     
     UIView *temp = (UIView *)[sender view];
@@ -129,7 +197,7 @@
 - (void)shrinkCurrentPage: (id)sender {
     currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 110);
     } completion:nil];
     //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
     //    tapGesture.delegate = self;
@@ -150,10 +218,14 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        // Send the user to the Settings for this app
+        // Send the user to the Settings fo r this app
         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [[UIApplication sharedApplication] openURL:settingsURL];
     }
+}
+
+- (void)dismissTour {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Page View Controller Data Source
@@ -224,7 +296,6 @@
     [self.mapView setRegion:region animated:YES];
 }
 
-
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {
         [((NSObject<JPSThumbnailAnnotationViewProtocol> *)view) didSelectAnnotationViewInMap:mapView];
@@ -238,15 +309,16 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView* annotationView = nil;
     if ([annotation conformsToProtocol:@protocol(JPSThumbnailAnnotationProtocol)]) {
         return [((NSObject<JPSThumbnailAnnotationProtocol> *)annotation) annotationViewInMap:mapView];
     }
-    return nil;
+    
+    return annotationView;;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-
 
 @end

@@ -68,7 +68,7 @@
                     <connections>
                         <outlet property="mapView" destination="5Q0-2a-mFI" id="jvg-y2-i4y"/>
                         <outlet property="segmentedControl" destination="dP6-E7-oGl" id="W9B-0g-0h4"/>
-                        <segue destination="m9J-Zx-GvA" kind="modal" identifier="ModalTourVC" id="6yd-Fl-cdG"/>
+                        <segue destination="m9J-Zx-GvA" kind="modal" identifier="ModalTourVC" modalTransitionStyle="flipHorizontal" id="6yd-Fl-cdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HI6-bc-bT5" sceneMemberID="firstResponder"/>
@@ -119,12 +119,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EeL-gM-XoT" secondAttribute="trailing" id="3Lw-cZ-pIj"/>
+                            <constraint firstItem="EeL-gM-XoT" firstAttribute="bottom" secondItem="vx8-kj-05Q" secondAttribute="top" id="7RR-Nk-093"/>
                             <constraint firstItem="EeL-gM-XoT" firstAttribute="leading" secondItem="7Yh-dQ-zRp" secondAttribute="leading" id="BUq-xm-uVl"/>
                             <constraint firstItem="vx8-kj-05Q" firstAttribute="top" secondItem="EeL-gM-XoT" secondAttribute="bottom" id="KLq-bp-aH0"/>
                             <constraint firstItem="EeL-gM-XoT" firstAttribute="top" secondItem="7Yh-dQ-zRp" secondAttribute="topMargin" id="OXu-pu-1xQ"/>
                             <constraint firstAttribute="centerX" secondItem="EeL-gM-XoT" secondAttribute="centerX" id="cOe-2B-Caq"/>
+                            <constraint firstItem="EeL-gM-XoT" firstAttribute="leading" secondItem="7Yh-dQ-zRp" secondAttribute="leading" id="kut-iB-EOV"/>
                             <constraint firstAttribute="centerY" secondItem="EeL-gM-XoT" secondAttribute="centerY" id="rsy-Of-2xe"/>
+                            <constraint firstItem="EeL-gM-XoT" firstAttribute="top" secondItem="7Yh-dQ-zRp" secondAttribute="top" id="s5R-hD-gAf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BUq-xm-uVl"/>
+                                <exclude reference="OXu-pu-1xQ"/>
+                                <exclude reference="cOe-2B-Caq"/>
+                                <exclude reference="rsy-Of-2xe"/>
+                                <exclude reference="KLq-bp-aH0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="EeL-gM-XoT" id="l5k-2M-zYf"/>
