@@ -133,8 +133,35 @@
     if(inside) {
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     }
-    double zoom = log2(360 * ((self.mapView.frame.size.width/256) / self.mapView.region.span.longitudeDelta));
+    //double zoom = log2(360 * ((self.mapView.frame.size.width/256) / self.mapView.region.span.longitudeDelta));
+    
+    [self outlineRoute];
 }
+
+- (void)outlineRoute {
+    CLLocationCoordinate2D coordinateArray[2];
+    coordinateArray[0] = CLLocationCoordinate2DMake(37.257663, -122.031162);
+    coordinateArray[1] = CLLocationCoordinate2DMake(37.256510, -122.032278);
+    
+    self.routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
+    [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
+    
+    [self.mapView addOverlay:self.routeLine];
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+    if(overlay == self.routeLine) {
+        if(nil == self.routeLineView) {
+            self.routeLineView = [[MKPolylineView alloc] initWithPolyline:self.routeLine];
+            self.routeLineView.fillColor = [UIColor blueColor];
+            self.routeLineView.strokeColor = [UIColor blueColor];
+            self.routeLineView.lineWidth = 5;
+        }
+        return self.routeLineView;
+    }
+    return nil;
+}
+
 
 - (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSArray* coords, NSError *error))completionBlock {
     [[SHPlaceManager sharedInstance] placesWithCompletion:^(NSArray *placesArray, NSError *error) {

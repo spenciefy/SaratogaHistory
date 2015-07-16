@@ -23,4 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIView *menuBarView;
 @property (strong, nonatomic) SYFullAudioPlayerView *audioPlayerView;
 
+@property (nonatomic, retain) MKPolyline *routeLine;
+@property (nonatomic, retain) MKPolylineView *routeLineView;
+
 @end
