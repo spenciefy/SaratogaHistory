@@ -45,8 +45,7 @@
             [images addObject:path];
         }
         
-        AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[[NSBundle mainBundle] URLForResource:placeDictionary[@"audioFileName"] withExtension:@"mp3"] options:nil];
-        SHPlace *place = [[SHPlace alloc]initWithIndex:index title:placeDictionary[@"Title"] lat:lat lng:lng address:placeDictionary[@"Address"] descriptionText:placeDictionary[@"Description"] images:images audio:asset imageAnnotation:showImageAnnotations];
+        SHPlace *place = [[SHPlace alloc]initWithIndex:index title:placeDictionary[@"Title"] lat:lat lng:lng address:placeDictionary[@"Address"] descriptionText:placeDictionary[@"Description"] images:images audio:nil imageAnnotation:showImageAnnotations];
         [places addObject:place];
         
         if(places.count == placesJSON.count) {
@@ -82,8 +81,10 @@
             [images addObject:path];
         }
         
-        AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[[NSBundle mainBundle] URLForResource:placeDictionary[@"audioFileName"] withExtension:@"mp3"] options:nil];
-        SHPlace *place = [[SHPlace alloc]initWithIndex:index title:placeDictionary[@"Title"] lat:lat lng:lng address:placeDictionary[@"Address"] descriptionText:placeDictionary[@"Description"] images:images audio:asset imageAnnotation:YES];
+        NSString *audioPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"TourAudio/%d", index+1] ofType:@"m4a"];
+        NSURL *audioURL = [NSURL fileURLWithPath:audioPath];
+        
+        SHPlace *place = [[SHPlace alloc]initWithIndex:index title:placeDictionary[@"Title"] lat:lat lng:lng address:placeDictionary[@"Address"] descriptionText:placeDictionary[@"Description"] images:images audio:audioURL imageAnnotation:YES];
         [places addObject:place];
         
         if(places.count == placesJSON.count) {

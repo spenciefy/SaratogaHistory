@@ -35,9 +35,13 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) BOOL           autoplay;
 @property (strong, nonatomic) UIColor       *textColor;
 
+@property (strong, nonatomic) NSURL       *fileURL;
+
+
 - (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay textColor:(UIColor *)textColor;
 - (void)cleanUp;
 - (void)stopAudio:(id)sender;
+- (void)startAudio:(id)sender;
 
 @end
 

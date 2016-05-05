@@ -74,10 +74,54 @@
 }
 
 - (void)createTourAudioTrack {
-    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, 75) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:NULL];
+    SHPlace *firstPlace = [places firstObject];
+
+    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, 110) audioFileURL:firstPlace.audioURL autoplay:NO textColor:NULL];
     self.audioPlayerView.delegate = self;
-    self.audioPlayerView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.f];
+    self.audioPlayerView.backgroundColor = [UIColor colorWithWhite:1.f alpha:1.f];
+    self.audioPlayerView.placeLabel.text = firstPlace.placeTitle;
+    
+    UIBezierPath *maskPath;
+    maskPath = [UIBezierPath bezierPathWithRoundedRect:self.audioPlayerView.bounds
+                                     byRoundingCorners:(UIRectCornerBottomLeft|UIRectCornerBottomRight)
+                                           cornerRadii:CGSizeMake(10.0, 10.0)];
+    
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.audioPlayerView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.audioPlayerView.layer.mask = maskLayer;
     [self.view addSubview: self.audioPlayerView];
+}
+
+- (void)previousTrack {
+    if(currentPlaceVC.pageIndex >= 1) {
+        JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
+        [prevAnnotation deselectAnnotationInMap:self.mapView];
+        currentPlaceVC = [self.pageViewController.viewControllers lastObject];
+        JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex - 1];
+        [newAnnotation selectAnnotationInMap:self.mapView];
+
+        
+        SHPlace *newPlace = [places objectAtIndex:currentPlaceVC.pageIndex - 1];
+        [self.audioPlayerView setFileURL:newPlace.audioURL];
+        [self.audioPlayerView.placeLabel setText:newPlace.placeTitle];
+        [self.audioPlayerView startAudio:self];
+    }
+}
+
+- (void)nextTrack {
+    if(currentPlaceVC.pageIndex <= 11) {
+        JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
+        [prevAnnotation deselectAnnotationInMap:self.mapView];
+        currentPlaceVC = [self.pageViewController.viewControllers lastObject];
+        JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex + 1];
+        [newAnnotation selectAnnotationInMap:self.mapView];
+
+        SHPlace *newPlace = [places objectAtIndex:currentPlaceVC.pageIndex + 1];
+        [self.audioPlayerView setFileURL:newPlace.audioURL];
+        [self.audioPlayerView.placeLabel setText:newPlace.placeTitle];
+        [self.audioPlayerView startAudio:self];
+    }
 }
 
 - (void)setupPageView {
@@ -116,11 +160,11 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.mapView.delegate = self;
-    float spanX = 0.000001;
-    float spanY = 0.000001;
+    float spanX = 0.0160;
+    float spanY = 0.0160;
     MKCoordinateRegion region;
-    region.center.latitude = 37.256715;// self.locationManager.location.coordinate.latitude;
-    region.center.longitude = -122.034703;// self.locationManager.location.coordinate.longitude;
+    region.center.latitude = 37.254017;// self.locationManager.location.coordinate.latitude;
+    region.center.longitude = -122.033921;// self.locationManager.location.coordinate.longitude;
     region.span.latitudeDelta = spanX;
     region.span.longitudeDelta = spanY;
     [self.mapView setRegion:region animated:YES];
@@ -131,10 +175,10 @@
     if(inside) {
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     }
-    //double zoom = log2(360 * ((self.mapView.frame.size.width/256) / self.mapView.region.span.longitudeDelta));
-    
-    [self outlineRoute];
+    double zoom = log2(360 * ((self.mapView.frame.size.width/256) / self.mapView.region.span.longitudeDelta));
+    NSLog(@"zoom: %f",zoom);
 }
+
 
 - (void)outlineRoute {
     CLLocationCoordinate2D coordinateArray[2];
@@ -193,6 +237,7 @@
         
         place.annotationThumbnail.expandBlock = ^{
             [self flipToPage:index];
+
         };
         [annotations addObject:[JPSThumbnailAnnotation annotationWithThumbnail:place.annotationThumbnail]];
         if(annotations.count == places.count) {
@@ -238,6 +283,11 @@
     } else {
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:NULL];
     }
+    
+    SHPlace *newPlace = [places objectAtIndex:index];
+    [self.audioPlayerView setFileURL:newPlace.audioURL];
+    [self.audioPlayerView.placeLabel setText:newPlace.placeTitle];
+    [self.audioPlayerView startAudio:self];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -290,11 +340,18 @@
     if(completed) {
         //pause the old player
         [currentPlaceVC pause];
+        [self.audioPlayerView stopAudio:self];
+        
         JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [prevAnnotation deselectAnnotationInMap:self.mapView];
         currentPlaceVC = [pageViewController.viewControllers lastObject];
         JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [newAnnotation selectAnnotationInMap:self.mapView];
+        
+        SHPlace *newPlace = [places objectAtIndex:currentPlaceVC.pageIndex];
+        [self.audioPlayerView setFileURL:newPlace.audioURL];
+        [self.audioPlayerView.placeLabel setText:newPlace.placeTitle];
+        [self.audioPlayerView startAudio:self];
     }
 }
 
@@ -343,7 +400,7 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 @end

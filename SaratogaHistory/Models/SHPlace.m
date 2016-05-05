@@ -11,7 +11,7 @@
 
 @implementation SHPlace
 
--(id)initWithIndex:(int)indx title:(NSString *)title lat:(float)latitude lng:(float)longitude address:(NSString *)addres descriptionText:(NSString *)text images:(NSArray *)imgs audio:(AVURLAsset *)audioAsset imageAnnotation:(BOOL)isImageAnnotation{
+-(id)initWithIndex:(int)indx title:(NSString *)title lat:(float)latitude lng:(float)longitude address:(NSString *)addres descriptionText:(NSString *)text images:(NSArray *)imgs audio:(NSURL *)audioURL imageAnnotation:(BOOL)isImageAnnotation {
     self = [super init];
     if(self) {
        
@@ -22,7 +22,7 @@
         self.address = addres;
         self.descriptionText = text;
         self.images = imgs;
-        self.audioURLAsset = audioAsset;
+        self.audioURL = audioURL;
         
         self.annotationThumbnail = [[JPSThumbnail alloc] init];
         self.annotationThumbnail.title = self.placeTitle;

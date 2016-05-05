@@ -37,7 +37,7 @@
     _titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:_titleLabel];
     
-    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURLAsset.URL autoplay:NO textColor:[UIColor darkGrayColor]];
+    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURL autoplay:NO textColor:[UIColor darkGrayColor]];
     audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 45);
     
     if(self.showsAudioView) {
