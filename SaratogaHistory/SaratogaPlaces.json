@@ -9,7 +9,7 @@
         "Index": 0,
         "Latitude": 37.257663,
         "Longitude": -122.031162,
-        "Title": "1. Saratoga Historical Museum ",
+        "Title": "Saratoga Historical Museum ",
         "createdAt": "2014-12-27T01:54:32.933Z",
         "objectId": "1DcZ8K3xpr",
         "updatedAt": "2015-06-25T20:49:13.465Z"
@@ -20,7 +20,7 @@
         "Index": 1,
         "Latitude": 37.257796,
         "Longitude": -122.031143,
-        "Title": "2. McWilliams House",
+        "Title": "McWilliams House",
         "createdAt": "2014-12-28T06:54:00.431Z",
         "objectId": "EH2qAPIoba",
         "updatedAt": "2015-06-26T06:59:13.273Z"
@@ -31,7 +31,7 @@
         "Index": 2,
         "Latitude": 37.257894,
         "Longitude": -122.03129,
-        "Title": "3. The Village Library ",
+        "Title": "The Village Library ",
         "createdAt": "2014-12-28T06:59:30.750Z",
         "objectId": "58HmKB5Ow6",
         "updatedAt": "2015-06-26T05:21:14.349Z"
@@ -42,7 +42,7 @@
         "Index": 3,
         "Latitude": 37.25651,
         "Longitude": -122.032278,
-        "Title": "4. Lundblad's Lodge",
+        "Title": "Lundblad's Lodge",
         "createdAt": "2015-06-21T18:29:08.368Z",
         "objectId": "IJqLDqjwTH",
         "updatedAt": "2015-06-25T18:34:34.120Z"
@@ -53,7 +53,7 @@
         "Index": 4,
         "Latitude": 37.256049,
         "Longitude": -122.03354,
-        "Title": "5. Saratoga Grammar School- Oak Street School",
+        "Title": "Saratoga Grammar School- Oak Street School",
         "createdAt": "2015-06-21T18:31:15.832Z",
         "objectId": "b1xzE4mMP5",
         "updatedAt": "2015-06-25T18:34:49.414Z"
@@ -64,7 +64,7 @@
         "Index": 5,
         "Latitude": 37.255001,
         "Longitude": -122.034432,
-        "Title": "6. Congregational Church Parsonage",
+        "Title": "Congregational Church Parsonage",
         "createdAt": "2015-06-21T18:33:38.836Z",
         "objectId": "rcwY8wL9c6",
         "updatedAt": "2015-06-25T18:35:01.443Z"
@@ -75,7 +75,7 @@
         "Index": 6,
         "Latitude": 37.254897,
         "Longitude": -122.034549,
-        "Title": "7. William F. King House",
+        "Title": "William F. King House",
         "createdAt": "2015-06-21T18:41:04.044Z",
         "objectId": "xehXxAueKg",
         "updatedAt": "2015-06-25T18:35:16.538Z"
@@ -86,7 +86,7 @@
         "Index": 7,
         "Latitude": 37.254854,
         "Longitude": -122.035398,
-        "Title": "8. Missionary Settlement House",
+        "Title": "Missionary Settlement House",
         "createdAt": "2015-06-21T18:42:40.860Z",
         "objectId": "oYEbKYyuRQ",
         "updatedAt": "2015-06-25T18:35:34.271Z"
@@ -97,7 +97,7 @@
         "Index": 8,
         "Latitude": 37.254587,
         "Longitude": -122.034902,
-        "Title": "9. Van Arsdale House",
+        "Title": "Van Arsdale House",
         "createdAt": "2015-06-21T18:44:28.185Z",
         "objectId": "uzowzysSdz",
         "updatedAt": "2015-06-25T18:35:57.084Z"
@@ -108,7 +108,7 @@
         "Index": 9,
         "Latitude": 37.25367,
         "Longitude": -122.036313,
-        "Title": "10. Madronia Cementary",
+        "Title": "Madronia Cementary",
         "createdAt": "2015-06-21T18:45:48.159Z",
         "objectId": "vmkikrR5Vj",
         "updatedAt": "2015-06-25T18:36:29.340Z"
@@ -119,7 +119,7 @@
         "Index": 10,
         "Latitude": 37.25529,
         "Longitude": -122.036779,
-        "Title": "11. Nardie House",
+        "Title": "Nardie House",
         "createdAt": "2015-06-21T18:47:25.862Z",
         "objectId": "n3PodYwDPc",
         "updatedAt": "2015-06-26T07:36:56.329Z"
@@ -130,7 +130,7 @@
         "Index": 11,
         "Latitude": 37.25542,
         "Longitude": -122.036729,
-        "Title": "12. John Henry House",
+        "Title": "John Henry House",
         "createdAt": "2015-06-21T18:48:48.846Z",
         "objectId": "EqsoPLQktn",
         "updatedAt": "2015-06-25T18:36:56.583Z"
@@ -141,7 +141,7 @@
         "Index": 12,
         "Latitude": 37.256527,
         "Longitude": -122.036596,
-        "Title": "13. Pettis Livery Stable",
+        "Title": "Pettis Livery Stable",
         "createdAt": "2015-06-21T18:52:34.543Z",
         "objectId": "9A2WXj08QP",
         "updatedAt": "2015-06-25T18:38:05.328Z"
@@ -152,7 +152,7 @@
         "Index": 13,
         "Latitude": 37.256527,
         "Longitude": -122.036596,
-        "Title": "14. Erwin T. King House",
+        "Title": "Erwin T. King House",
         "createdAt": "2015-06-21T18:54:46.307Z",
         "objectId": "nx5sil8l7h",
         "updatedAt": "2015-06-25T18:38:15.359Z"
@@ -163,7 +163,7 @@
         "Index": 14,
         "Latitude": 37.257229,
         "Longitude": -122.034578,
-        "Title": "15. Grover House",
+        "Title": "Grover House",
         "createdAt": "2015-06-21T18:55:36.836Z",
         "objectId": "7lVzoUoTE9",
         "updatedAt": "2015-06-25T18:38:25.206Z"
@@ -174,7 +174,7 @@
         "Index": 15,
         "Latitude": 37.257238,
         "Longitude": -122.034429,
-        "Title": "16. Green Store Building/ Kocher Building",
+        "Title": "Green Store Building/ Kocher Building",
         "createdAt": "2015-06-21T18:56:51.254Z",
         "objectId": "49TUfhCBxE",
         "updatedAt": "2015-06-25T18:38:37.794Z"
@@ -185,7 +185,7 @@
         "Index": 16,
         "Latitude": 37.257422,
         "Longitude": -122.034165,
-        "Title": "17. Sam Cloud House and Cloud General Store",
+        "Title": "Sam Cloud House and Cloud General Store",
         "createdAt": "2015-06-21T18:59:52.275Z",
         "objectId": "aH7owL27Aw",
         "updatedAt": "2015-06-25T18:38:47.635Z"
@@ -196,7 +196,7 @@
         "Index": 17,
         "Latitude": 37.257631,
         "Longitude": -122.034404,
-        "Title": "18. Sam Cloud's Hay and Feed Warehouse",
+        "Title": "Sam Cloud's Hay and Feed Warehouse",
         "createdAt": "2015-06-21T19:02:43.491Z",
         "objectId": "6f19Pbqhm2",
         "updatedAt": "2015-06-25T18:38:55.318Z"
@@ -207,7 +207,7 @@
         "Index": 18,
         "Latitude": 37.257443,
         "Longitude": -122.033871,
-        "Title": "19. Toll Gate Plaque",
+        "Title": "Toll Gate Plaque",
         "createdAt": "2015-06-21T19:11:03.921Z",
         "objectId": "ySkkXDMquG",
         "updatedAt": "2015-06-25T18:39:11.893Z"
@@ -218,7 +218,7 @@
         "Index": 19,
         "Latitude": 37.25762,
         "Longitude": -122.033988,
-        "Title": "20. Hutchinson Building",
+        "Title": "Hutchinson Building",
         "createdAt": "2015-06-21T19:13:04.263Z",
         "objectId": "CPNX34mAS2",
         "updatedAt": "2015-06-25T18:39:21.429Z"
@@ -229,7 +229,7 @@
         "Index": 20,
         "Latitude": 37.258783,
         "Longitude": -122.032875,
-        "Title": "21. Saratoga National Bank- The Bank",
+        "Title": "Saratoga National Bank- The Bank",
         "createdAt": "2015-06-21T19:14:22.303Z",
         "objectId": "Iwdge7csoQ",
         "updatedAt": "2015-06-25T18:39:30.493Z"
@@ -238,9 +238,9 @@
         "Address": "20526 Saratoga-Los Gatos Road",
         "Description": "The plaza was once the site of a railroad station of an interurban railroad, built in 1903, that ran to San Jose and Los Gatos and Palo Alto and up Lumber Street to the picnic grounds of the mineral springs about a mile west of the Village. The station, with its spur lines occupied by freight cars, tracks, poles and wires made an unsightly approach to the business district of Saratoga Village . So in 1919, a group of local citizens, headed by Charles Blaney, formed a company of ten people who each put up $1000. They persuaded the railroad to move its station farther down Saratoga Avenue and they purchased the land for a park to beautify the area. They hired an eminent landscape architect, Bruce Porter, to design the park and an arch to memorialize the Saratoga men who lost their lives in World War I. The Saratoga Foothill club members maintained the park until Saratoga was incorporated as a city in 1956. The railroad was discontinued in 1933. The arch originally stood in the village plaza across the street, and was moved to its present location in 1965 when the state highway was widened. In 1950, the one hundredth anniversary of the founding of the Village, Saratoga was designated as a California State Registered Landmark and the historic plaque was placed on the arch. It is important that this city preserves its historic buildings so that qualifies it for this distinction.  ",
         "Index": 21,
-        "Latitude": 37.254244,
-        "Longitude": -122.039033,
-        "Title": "22. Memorial Arch",
+        "Latitude": 37.258877,
+        "Longitude": -122.031873,
+        "Title": "Memorial Arch",
         "createdAt": "2015-06-21T19:17:58.145Z",
         "objectId": "9r8vsf61n4",
         "updatedAt": "2015-06-25T18:39:39.444Z"
@@ -251,7 +251,7 @@
         "Index": 22,
         "Latitude": 37.259058,
         "Longitude": -122.0315,
-        "Title": "23. Saratoga Fire Bell",
+        "Title": "Saratoga Fire Bell",
         "createdAt": "2015-06-21T19:20:07.436Z",
         "objectId": "imKRiXbBE2",
         "updatedAt": "2015-06-25T18:39:48.915Z"
@@ -262,7 +262,7 @@
         "Index": 23,
         "Latitude": 37.258275,
         "Longitude": -122.031776,
-        "Title": "24. Methodist-Episcopal Church ",
+        "Title": "Methodist-Episcopal Church ",
         "createdAt": "2015-06-21T19:21:46.464Z",
         "objectId": "g0zNnOUNBh",
         "updatedAt": "2015-06-25T18:39:58.300Z"
@@ -273,7 +273,7 @@
         "Index": 24,
         "Latitude": 37.258358,
         "Longitude": -122.03026,
-        "Title": "25. Saratoga Federated Church",
+        "Title": "Saratoga Federated Church",
         "createdAt": "2015-06-21T19:23:26.501Z",
         "objectId": "ob0YAONwLg",
         "updatedAt": "2015-06-25T18:40:06.400Z"
@@ -284,9 +284,33 @@
         "Index": 25,
         "Latitude": 37.259032,
         "Longitude": -122.029959,
-        "Title": "26. Saratoga Foothill Club",
+        "Title": "Saratoga Foothill Club",
         "createdAt": "2015-06-21T19:24:38.209Z",
         "objectId": "cXuWenWZAN",
         "updatedAt": "2015-06-25T18:40:14.154Z"
-    }
+        },
+        {
+          "Address": "14540 Big Basin Way",
+          "Description": "As you stand on the corner of 4th Street and Big Basin Way, watch the traffic meander up and down past the boutique shops and fine restaurants that line this quaint thoroughfare. Now imagine in an earlier time, Big Basin Way was nothing more than a dusty, dirt path lined freshly hewn redwood lumber stacked 6 feet high on both sides of the road. In fact, Big Basin Way was originally called Lumber Street. \n\nOur story picks up with William Campbell, a veteran of the War of 1812 and a successful farmer from Missouri. He, his wife, and four grown sons decided migrated to California in 1846...yes, that is the same year as the infamous Donner Party. In fact, his immigrant party left Independence Missouri the same day as the Donner party. As fate would have it, Campbell did not take Hastings Cutoff and made it over the Sierras before the snows, unlike the tragedy that befell the Donner Party. \n\nUpon arriving in the area, he quickly laid claim to 160 acres near the Santa Clara Mission, however, things turned ugly for the family when wife soon contracted typhoid fever (a nasty yet common bacteria when feces comes in contact with drinking water). Within days, he enlisted in the California Riflemen for two months of the Mexican American War to earn quick money or possibly to get away for a short while.  Upon returning, he drew up contract with owner of land in the area, Manuel Alviso, to erect a sawmill and sell furnished lumber to the area residents, almost all of which were European-born who could not stand the damp, stinky adobe homes. This first legal document of Saratoga gave him authority to furnish lumber. However, William and his sons did not start construction of the mill until after they tried their hand at digging for gold in the California gold fields in 1848. Luckily, they quit the goldfields early before the rush of “Forty-Niners” the next year and got to building their sawmill. However, earlier in the year, Isaac Branham and Captain Julian Hanks of San Jose, did NOT go to the gold fields and as a result finished their sawmill on the Los Gatos Creek, the before Saratoga, making them the first sawmill in the not only the county but northern California and beginning the fierce local competition between the two communities. \n\nThe mill opened the next year, 2 ½ miles up the canyon and became very profitable. William Campbell went on to survey the towns of Santa Clara and San Jose. His original 160 acres became the downtown core of the town of Campbell today. \n\nLet me end the story of this bustling downtown street. The city changed its name from Lumber Street after Big Basin State Park was established in 1902 to help direct campers, tourists, and out of towners through this quaint village as they embark on their journey into the mountains.",
+          "Index": 26,
+          "Latitude": 37.256715,
+          "Longitude": -122.034703,
+          "Title": "Lumber Street (4th Street and Big Basin Way)"
+          },
+          {
+          "Address": "20701-20763 4th St",
+          "Description": "This creek carries spring water from the Santa Cruz Mountains. Over millions of years, it has cut a canyon through the mountains. Today, the road Big Basin Way has cut into this canyon to carry cars over the same path. However, for hundreds of years, Indians first used this creek to walk from the coast to the valley to trade goods. The Indians were of the Ohlone. \n\n10,000 Ohlone lived from Big Sur to the south to the Golden Gate Bridge to the north hundreds of years ago. Artifacts have been found along this creek where Ohlone camped as they travelled over the rugged trails to the coast to trade acorn, huckleberry, cinnabar, fresh-water fish for obsidian, abalone shells, and beads. Do not underestimate this trade network as one of these coastal necklaces with shells only found in this area was found in the middle of Nevada dating back 800 years. Cinnabar from this area has been found as far north as Walla Walla, Washington. This type of trade network is amazing even without modern amenities of vehicles, planes, and Amazon Prime.\n\nAn interesting note about the Ohlone is that they did not make pottery but made wonderful baskets. Although fiercely religious with a shaman who led a variety of ceremonies, they played too. Some of the games included “Shinny”, a game in which a wooden puck was hit along a course...maybe an early version of Hockey Sharks fans?",
+          "Index": 27,
+          "Latitude": 37.257475,
+          "Longitude": -122.035348,
+          "Title": "Saratoga Creek"
+          },
+          {
+          "Address": "20649 4th St",
+          "Description":"The Spanish had been in the new world for 200 years, but were feeling threatened by the Russian and English presence in the Northwest. By 1773, the total Spanish population in Alta California was 70! There were only two military outposts in San Diego and Monterey and five small missions. In 1776, on the eve of the Revolutionary War, Juan Bautista de Anza, a Spanish politician, set out to find an overland route to Alta California to establish a presidio at San Francisco and two missions within a short distance of one another. He was given the charge by the Viceroy of New Spain to take soldiers and their families to settle the port of San Francisco. He had 198 settlers and six tons of supplies, including chocolate. As the expedition Tubac (forty miles south of Tucson), the party experienced hardship when a young mother died from childbirth complications, leaving a husband and seven children. Unusual whether pounded the caravan as it crossed the Colorado River and traversed the desert. In the mountains, they were frightened by an earthquake and had lost nearly 100 head of stock by the time they reached mission San Gabriel. Professor Chapman described his contribution to California history as “second only to the discovery of gold in 1848 in its positive consequences upon California History.” About the same day that the British left Boston after the defeat at Dorchester Heights, Anza arrived in Santa Clara County. The group left Gilroy and traveled up the valley avoiding heavy spring runoff and watery lagoons staying close to the western valley floor. Their first camp in the valley was on the banks of Stevens Creek in Cupertino in which the priest named “Arroyo San Jose de Cupertino, in honor recently canonized saint, Father Joseph Desa, resident of the tiny village of Cupertino in the old kingdom of Naples, Italy. \n\nSeventy years later, in 1846, a Mexican land grant deeded Saratoga, Campbell, and Cupertino area to early settlers Jose Noriega and his father-in-law, Jose Fernandez. A subsequent purchase by Manuel Alviso resulted in naming this land grant area Rancho Quito.",
+          "Index": 28,
+          "Latitude": 37.257293,
+          "Longitude": -122.035319,
+          "Title": "Spanish Rancho Quito"
+          }
 ] }

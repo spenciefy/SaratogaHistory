@@ -14,6 +14,7 @@
 
 + (SHPlaceManager *)sharedInstance;
 
-- (void)placesWithCompletion:(void (^)(NSArray *placesArray, NSError *error))completionBlock;
+- (void)placesWithImageAnnotations:(BOOL)showImageAnnotations completion:(void (^)(NSArray *placesArray, NSError *error))completionBlock;
+- (void)tourPlacesWithCompletion:(void (^)(NSArray *placesArray, NSError *error))completionBlock;
 
 @end

@@ -21,6 +21,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) id<SYFullAudioPlayerViewDelegate> delegate;
 
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+@property (strong, nonatomic) UILabel       *placeLabel;
 @property (strong, nonatomic) UILabel       *currentTime;
 @property (strong, nonatomic) UILabel       *endTime;
 @property (strong, nonatomic) UISlider      *seekBar;

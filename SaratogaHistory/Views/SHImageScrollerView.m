@@ -11,12 +11,11 @@
 @implementation SHImageScrollerView
 @synthesize delegate;
 
--(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr captionArray:(NSArray *)capArr; {
+-(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr{
    
     if ((self=[super initWithFrame:frame])) {
         self.userInteractionEnabled = YES;
         
-        captionArray = capArr;
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:imgArr];
         [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] - 1)] atIndex:0];
         [tempArray addObject: [imgArr objectAtIndex:0]];
@@ -51,25 +50,13 @@
         
         [scrollView setContentOffset:CGPointMake(viewSize.size.width, 0)];
         [self addSubview:scrollView];
-        
-        UIView *noteView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-33,self.bounds.size.width,33)];
-        [noteView setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.8]];
-        
+              
         float pageControlWidth = (pageCount-2) * 10.0f + 40.f;
         float pagecontrolHeight = 20.0f;
         pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake((self.frame.size.width-pageControlWidth),6, pageControlWidth, pagecontrolHeight)];
         pageControl.currentPage = 0;
         pageControl.numberOfPages = (pageCount-2);
-        [noteView addSubview:pageControl];
-        
-        noteTitle = [[UILabel alloc] initWithFrame:CGRectMake(5, 6, self.frame.size.width-pageControlWidth-15, 20)];
-        [noteTitle setText:[capArr objectAtIndex:0]];
-        [noteTitle setBackgroundColor:[UIColor clearColor]];
-        [noteTitle setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:14]];
-        noteTitle.textColor = [UIColor whiteColor];
-        [noteView addSubview:noteTitle];
-        
-        [self addSubview:noteView];
+        [self addSubview:pageControl];
     }
     
     return self;
@@ -81,14 +68,6 @@
     currentPageIndex=page;
     
     pageControl.currentPage=(page - 1);
-    int captionIndex=page - 1;
-    if (captionIndex == [captionArray count]) {
-        captionIndex = 0;
-    }
-    if (captionIndex<0) {
-        captionIndex = (int)[captionArray count]-1;
-    }
-    [noteTitle setText:[captionArray objectAtIndex:captionIndex]];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView {

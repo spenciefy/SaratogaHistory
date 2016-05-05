@@ -29,13 +29,13 @@
     _playButton = [UIButton new];
     _playButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_playButton addTarget:self action:@selector(playAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_playButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
+    [_playButton setImage:[UIImage imageNamed:@"play-icon"] forState:UIControlStateNormal];
     [self addSubview:_playButton];
     
     _stopButton = [UIButton new];
     _stopButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_stopButton addTarget:self action:@selector(stopAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_stopButton setImage:[UIImage imageNamed:@"pausebutton.png"] forState:UIControlStateNormal];
+    [_stopButton setImage:[UIImage imageNamed:@"pause-icon"] forState:UIControlStateNormal];
     [self.stopButton setHidden:YES];
     [self addSubview:_stopButton];
     
@@ -121,7 +121,7 @@
      *  pin the play and stop buttons to the top of the view.
      */
     
-    [self.playButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
+    [self.playButton pinToSuperviewEdges:JRTViewPinTopEdge inset:25];
     [self.playButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:12];
     [self.playButton constrainToWidth:23.0];
     [self.playButton constrainToHeight:23.0];
@@ -132,11 +132,11 @@
     [self.stopButton constrainToHeight:23.0];
     
     [self.currentTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.currentTime pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.playButton withConstant:9.f];
+    [self.currentTime pinToSuperviewEdges:JRTViewPinLeftEdge inset:15];
     [self.currentTime constrainToWidth:30];
     [self.currentTime constrainToHeight:20];
     
-    [self.seekBar pinToSuperviewEdges:JRTViewPinTopEdge inset:13];
+    [self.seekBar pinToSuperviewEdges:JRTViewPinTopEdge inset:45];
     [self.seekBar constrainToWidth:self.frame.size.width-120];
     [self.seekBar pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.currentTime withConstant:2.f];
     
@@ -144,15 +144,15 @@
     [self.endTime pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.seekBar withConstant:5.f];
     [self.endTime constrainToWidth:30];
     
-    [self.previousButton pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:13.f];
+    [self.previousButton pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:5.f];
     [self.previousButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:15];
     [self.previousButton constrainToHeight:23.0];
     
-    [self.nextButton pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:13.f];
+    [self.nextButton pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:5.f];
     [self.nextButton pinAttribute:NSLayoutAttributeLeading toAttribute:NSLayoutAttributeTrailing ofItem:self.previousButton withConstant:10.f];
     [self.nextButton constrainToHeight:23.0];
     
-    [self.endTour pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:13.f];
+    [self.endTour pinAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:self.currentTime withConstant:5.f];
     [self.endTour pinToSuperviewEdges:JRTViewPinRightEdge inset:20.f];
     [self.endTour constrainToHeight:23.0];
     [self.endTour constrainToWidth:50.f];

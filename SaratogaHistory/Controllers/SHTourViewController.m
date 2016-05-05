@@ -74,11 +74,9 @@
 }
 
 - (void)createTourAudioTrack {
-    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(MARGIN,MARGIN,self.view.frame.size.width - 2*MARGIN, 75) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:NULL];
+    self.audioPlayerView = [[SYFullAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, 75) audioFileURL:[NSURL URLWithString: @"placeholder"] autoplay:NO textColor:NULL];
     self.audioPlayerView.delegate = self;
-    self.audioPlayerView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.9];
-    self.audioPlayerView.layer.cornerRadius = 10.f;
-    self.audioPlayerView.layer.masksToBounds = YES;
+    self.audioPlayerView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.f];
     [self.view addSubview: self.audioPlayerView];
 }
 
@@ -118,11 +116,11 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.mapView.delegate = self;
-    float spanX = 0.0160;
-    float spanY = 0.0160;
+    float spanX = 0.000001;
+    float spanY = 0.000001;
     MKCoordinateRegion region;
-    region.center.latitude = 37.254017;// self.locationManager.location.coordinate.latitude;
-    region.center.longitude = -122.033921;// self.locationManager.location.coordinate.longitude;
+    region.center.latitude = 37.256715;// self.locationManager.location.coordinate.latitude;
+    region.center.longitude = -122.034703;// self.locationManager.location.coordinate.longitude;
     region.span.latitudeDelta = spanX;
     region.span.longitudeDelta = spanY;
     [self.mapView setRegion:region animated:YES];
@@ -153,8 +151,8 @@
     if(overlay == self.routeLine) {
         if(nil == self.routeLineView) {
             self.routeLineView = [[MKPolylineView alloc] initWithPolyline:self.routeLine];
-            self.routeLineView.fillColor = [UIColor blueColor];
-            self.routeLineView.strokeColor = [UIColor blueColor];
+            self.routeLineView.fillColor = [UIColor darkGrayColor];
+            self.routeLineView.strokeColor = [UIColor darkGrayColor];
             self.routeLineView.lineWidth = 5;
         }
         return self.routeLineView;
@@ -164,7 +162,7 @@
 
 
 - (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSArray* coords, NSError *error))completionBlock {
-    [[SHPlaceManager sharedInstance] placesWithCompletion:^(NSArray *placesArray, NSError *error) {
+    [[SHPlaceManager sharedInstance] tourPlacesWithCompletion:^(NSArray *placesArray, NSError *error) {
         places = placesArray;
         NSMutableArray *placeVCs = [[NSMutableArray alloc] init];
         NSMutableArray *coords = [[NSMutableArray alloc] init];

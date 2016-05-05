@@ -29,13 +29,13 @@
     _playButton = [UIButton new];
     _playButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_playButton addTarget:self action:@selector(playAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_playButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
+    [_playButton setImage:[UIImage imageNamed:@"play-icon"] forState:UIControlStateNormal];
     [self addSubview:_playButton];
     
     _stopButton = [UIButton new];
     _stopButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_stopButton addTarget:self action:@selector(stopAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_stopButton setImage:[UIImage imageNamed:@"pausebutton.png"] forState:UIControlStateNormal];
+    [_stopButton setImage:[UIImage imageNamed:@"pause-icon"] forState:UIControlStateNormal];
     [self.stopButton setHidden:YES];
     [self addSubview:_stopButton];
     

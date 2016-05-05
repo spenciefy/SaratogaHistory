@@ -16,7 +16,7 @@
 
 @implementation SHPlaceViewController {
     UIScrollView *_scrollView;
-    UILabel *_captionLabel;
+    UILabel *_titleLabel;
     UITextView *_textView;
 }
 - (void)viewDidLoad {
@@ -30,21 +30,21 @@
                                                  name:@"PageViewChange"
                                                object:nil];
     
-    _captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 40)];
-    _captionLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
-    _captionLabel.center = CGPointMake(self.view.frame.size.width/2, 25);
-    _captionLabel.textAlignment = NSTextAlignmentLeft;
-    _captionLabel.text = self.place.placeTitle;
-    [self.view addSubview:_captionLabel];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 25)];
+    _titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
+    _titleLabel.textAlignment = NSTextAlignmentLeft;
+    _titleLabel.text = self.place.placeTitle;
+    _titleLabel.adjustsFontSizeToFitWidth = YES;
+    [self.view addSubview:_titleLabel];
     
     SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURLAsset.URL autoplay:NO textColor:[UIColor darkGrayColor]];
-    audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
+    audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 45);
     
     if(self.showsAudioView) {
         [self.view addSubview:audioPlayer];
-        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 130)];
+        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height + 2, self.view.frame.size.width, self.view.frame.size.height - 130)];
     } else {
-        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, _captionLabel.frame.origin.y + _captionLabel.frame.size.height + 3, self.view.frame.size.width, self.view.frame.size.height - 82)];
+        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 8, self.view.frame.size.width, self.view.frame.size.height - 82)];
     }
 
     _scrollView.showsVerticalScrollIndicator = YES;
@@ -54,7 +54,7 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images captionArray:self.place.imageCaptions];
+    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images];
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];
     
@@ -105,11 +105,6 @@
 
     // IDMPhoto array
     NSArray *IDMphotos = [IDMPhoto photosWithFilePaths:self.place.images];
-    // Iterate through IDMPhoto objects and add captions
-    for (int i = 0; i < IDMphotos.count; i++){
-        IDMPhoto *photo = IDMphotos[i];
-        photo.caption = self.place.imageCaptions[i];
-    }
     
     IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:IDMphotos];
     browser.displayActionButton = NO;

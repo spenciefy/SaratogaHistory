@@ -19,11 +19,10 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, strong) NSArray *imageCaptions;
 @property (nonatomic, strong) JPSThumbnail *annotationThumbnail;
 @property (nonatomic, strong) AVURLAsset *audioURLAsset;
 
--(id)initWithIndex:(int)indx title:(NSString *)title lat:(float)latitude lng:(float)longitude address:(NSString *)addres descriptionText:(NSString *)text images:(NSArray *)imgs imageCaptions:(NSArray *)captions audio:(AVURLAsset *)audioAsset;
+-(id)initWithIndex:(int)indx title:(NSString *)title lat:(float)latitude lng:(float)longitude address:(NSString *)addres descriptionText:(NSString *)text images:(NSArray *)imgs audio:(AVURLAsset *)audioAsset imageAnnotation:(BOOL)isImageAnnotation;
 
 
 @end
