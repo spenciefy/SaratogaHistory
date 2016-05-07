@@ -20,15 +20,12 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Bolts/Tasks (1.7.0)
   - DACircularProgress (2.3.1)
   - IDMPhotoBrowser (1.6.2):
     - AFNetworking
     - DACircularProgress
     - pop
   - JPSThumbnailAnnotation (1.0.0)
-  - Parse (1.13.0):
-    - Bolts/Tasks (~> 1.6)
   - pop (1.0.7)
   - PureLayout (2.0.6)
   - Reveal-iOS-SDK (1.5.1)
@@ -37,7 +34,6 @@ DEPENDENCIES:
   - IDMPhotoBrowser
   - JPSThumbnailAnnotation (from `https://github.com/spenciefy/JPSThumbnailAnnotation.git`,
     commit `c738c8a905fccc54745d2c16a627a5d3e7226295`)
-  - Parse
   - PureLayout
   - Reveal-iOS-SDK
 
@@ -53,11 +49,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   IDMPhotoBrowser: ebbfa6690456b72dd92d93b7bc11d71519f4d06d
   JPSThumbnailAnnotation: 4b35e87788d903db3fec294e7ef44136b9f741fb
-  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9

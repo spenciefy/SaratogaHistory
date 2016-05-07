@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C8A3A0E09108C312B741AE03'
+               BlueprintIdentifier = 'ADE801F2B712BE3E89F8A644'
                BlueprintName = 'JPSThumbnailAnnotation'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libJPSThumbnailAnnotation.a'>

@@ -3,4 +3,3 @@ pod 'JPSThumbnailAnnotation' , :git => 'https://github.com/spenciefy/JPSThumbnai
 pod 'IDMPhotoBrowser'
 pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 pod 'PureLayout'
-pod 'Parse'

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,9 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Parse enableLocalDatastore];
-    [Parse setApplicationId:@"ECERqz1vTdNx21wtohOZbnCOYsfmGZzOHpvdyKhO" clientKey:@"zNf82cL6BlNI0zNkbVRAeq5kMvdmAnq1x2jqGUch"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     return YES;
 }
 
