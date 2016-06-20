@@ -73,6 +73,10 @@
     [self createTourAudioTrack];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
 - (void)createTourAudioTrack {
     SHPlace *firstPlace = [places firstObject];
 
@@ -97,6 +101,8 @@
     if(currentPlaceVC.pageIndex >= 1) {
         JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [prevAnnotation deselectAnnotationInMap:self.mapView];
+        prevAnnotation = nil;
+        
         currentPlaceVC = [self.pageViewController.viewControllers lastObject];
         JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex - 1];
         [newAnnotation selectAnnotationInMap:self.mapView];
@@ -113,6 +119,8 @@
     if(currentPlaceVC.pageIndex <= 11) {
         JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [prevAnnotation deselectAnnotationInMap:self.mapView];
+        prevAnnotation = nil;
+
         currentPlaceVC = [self.pageViewController.viewControllers lastObject];
         JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex + 1];
         [newAnnotation selectAnnotationInMap:self.mapView];
@@ -179,32 +187,6 @@
     NSLog(@"zoom: %f",zoom);
 }
 
-
-- (void)outlineRoute {
-    CLLocationCoordinate2D coordinateArray[2];
-    coordinateArray[0] = CLLocationCoordinate2DMake(37.257663, -122.031162);
-    coordinateArray[1] = CLLocationCoordinate2DMake(37.256510, -122.032278);
-    
-    self.routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
-    [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
-    
-    [self.mapView addOverlay:self.routeLine];
-}
-
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
-    if(overlay == self.routeLine) {
-        if(nil == self.routeLineView) {
-            self.routeLineView = [[MKPolylineView alloc] initWithPolyline:self.routeLine];
-            self.routeLineView.fillColor = [UIColor darkGrayColor];
-            self.routeLineView.strokeColor = [UIColor darkGrayColor];
-            self.routeLineView.lineWidth = 5;
-        }
-        return self.routeLineView;
-    }
-    return nil;
-}
-
-
 - (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSArray* coords, NSError *error))completionBlock {
     [[SHPlaceManager sharedInstance] tourPlacesWithCompletion:^(NSArray *placesArray, NSError *error) {
         places = placesArray;
@@ -217,7 +199,7 @@
             placeViewController.place = places[i];
             placeViewController.delegate = self;
             placeViewController.expanded = NO;
-            placeViewController.showsAudioView = NO;
+            placeViewController.isTourCard = YES;
             
             SHPlace *place = places[i];
             [coords addObject: [NSString stringWithFormat: @"%f,%f", place.lat, place.lng]];
@@ -250,14 +232,14 @@
 - (void)expandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 110, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 125, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
 -(void)tapExpandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 110, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 125, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
     
     UIView *temp = (UIView *)[sender view];
@@ -267,7 +249,7 @@
 - (void)shrinkCurrentPage: (id)sender {
     currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 110);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 125);
     } completion:nil];
     //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
     //    tapGesture.delegate = self;
@@ -287,7 +269,7 @@
     SHPlace *newPlace = [places objectAtIndex:index];
     [self.audioPlayerView setFileURL:newPlace.audioURL];
     [self.audioPlayerView.placeLabel setText:newPlace.placeTitle];
-    [self.audioPlayerView startAudio:self];
+ //   [self.audioPlayerView startAudio:self];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -300,6 +282,8 @@
 }
 
 - (void)dismissTour {
+    [self.audioPlayerView stopAudio:self];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -339,11 +323,12 @@
     
     if(completed) {
         //pause the old player
-        [currentPlaceVC pause];
         [self.audioPlayerView stopAudio:self];
         
         JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [prevAnnotation deselectAnnotationInMap:self.mapView];
+        prevAnnotation = nil;
+
         currentPlaceVC = [pageViewController.viewControllers lastObject];
         JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [newAnnotation selectAnnotationInMap:self.mapView];
@@ -351,7 +336,7 @@
         SHPlace *newPlace = [places objectAtIndex:currentPlaceVC.pageIndex];
         [self.audioPlayerView setFileURL:newPlace.audioURL];
         [self.audioPlayerView.placeLabel setText:newPlace.placeTitle];
-        [self.audioPlayerView startAudio:self];
+     //   [self.audioPlayerView startAudio:self];
     }
 }
 

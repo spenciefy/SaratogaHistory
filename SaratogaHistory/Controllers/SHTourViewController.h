@@ -20,7 +20,6 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
-@property (strong, nonatomic) IBOutlet UIView *menuBarView;
 @property (strong, nonatomic) SYFullAudioPlayerView *audioPlayerView;
 
 @property (nonatomic, retain) MKPolyline *routeLine;

@@ -108,13 +108,13 @@
             return 16;
             break;
         case 3:
-            return 28;
+            return 27;
             break;
         case 4:
-            return 29;
+            return 28;
             break;
         case 5:
-            return 27;
+            return 29;
             break;
         case 6:
             return 14;

@@ -11,15 +11,20 @@
 @implementation SHImageScrollerView
 @synthesize delegate;
 
--(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr{
-   
+-(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr limitImagesToOne:(BOOL)limitToOne {
+
     if ((self=[super initWithFrame:frame])) {
         self.userInteractionEnabled = YES;
         
-        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:imgArr];
-        [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] - 1)] atIndex:0];
-        [tempArray addObject: [imgArr objectAtIndex:0]];
-        imageArray = [NSArray arrayWithArray:tempArray];
+//        if(limitToOne) {
+//            imageArray = @[[imgArr firstObject]];
+//
+//        } else {
+            NSMutableArray *tempArray = [NSMutableArray arrayWithArray:imgArr];
+            [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] - 1)] atIndex:0];
+            [tempArray addObject: [imgArr objectAtIndex:0]];
+            imageArray = [NSArray arrayWithArray:tempArray];
+   //     }
         
         viewSize = frame;
         NSUInteger pageCount = [imageArray count];
@@ -33,8 +38,10 @@
         scrollView.delegate = self;
         
         for (int i = 0; i < pageCount; i++) {
-            UIImageView *imgView=[[UIImageView alloc] init];
-            [imgView setImage:[UIImage imageWithContentsOfFile:imageArray[i]]];
+            UIImageView *imgView = [[UIImageView alloc] init];
+            UIImage *scaledImage = [self scaleImage:[UIImage imageWithContentsOfFile:imageArray[i]] toSize:viewSize.size];
+            [imgView setImage:scaledImage];
+            
             [imgView setFrame:CGRectMake(viewSize.size.width * i, 0, viewSize.size.width, viewSize.size.height)];
 
             imgView.tag = i;
@@ -88,19 +95,16 @@
 - (UIImage*)scaleImage:(UIImage*)image toSize:(CGSize)newSize {
     CGSize scaledSize = newSize;
     float scaleFactor = 1.0;
-    if( image.size.width > image.size.height ) {
+    if(image.size.width > image.size.height ) {
         scaleFactor = image.size.width / image.size.height;
         scaledSize.width = newSize.width;
-        scaledSize.height = newSize.height / scaleFactor;
-    }
-    else {
-        scaleFactor = image.size.height / image.size.width;
-        scaledSize.height = newSize.height;
-        scaledSize.width = newSize.width / scaleFactor;
+        scaledSize.height = newSize.height * scaleFactor;
+    } else {
+        scaledSize = image.size;
     }
     
     UIGraphicsBeginImageContextWithOptions( scaledSize, NO, 0.0 );
-    CGRect scaledImageRect = CGRectMake( 0.0, 0.0, scaledSize.width, scaledSize.height );
+    CGRect scaledImageRect = CGRectMake(0.0, 0.0, scaledSize.width, scaledSize.height);
     [image drawInRect:scaledImageRect];
     UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

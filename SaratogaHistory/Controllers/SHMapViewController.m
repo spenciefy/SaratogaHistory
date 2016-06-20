@@ -25,7 +25,6 @@
 
 #import "SHMapViewController.h"
 #import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
-#import <Parse/Parse.h>
 #import "SHTourViewController.h"
 
 @interface SHMapViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -115,7 +114,7 @@
             placeViewController.place = places[i];
             placeViewController.delegate = self;
             placeViewController.expanded = NO;
-            placeViewController.showsAudioView = NO;
+            placeViewController.isTourCard = NO;
 
             [placeVCs addObject:placeViewController];
             
@@ -379,7 +378,6 @@
     
     if(completed) {
         //pause the old player
-        [currentPlaceVC pause];
         JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
         [prevAnnotation deselectAnnotationInMap:self.mapView];
         currentPlaceVC = [pageViewController.viewControllers lastObject];

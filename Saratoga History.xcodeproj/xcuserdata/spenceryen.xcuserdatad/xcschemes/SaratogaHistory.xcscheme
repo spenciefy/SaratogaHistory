@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C3C1E131B37227D008B39D0"
-            BuildableName = "SaratogaHistory.app"
-            BlueprintName = "SaratogaHistory"
-            ReferencedContainer = "container:SaratogaHistory.xcodeproj">
+            BuildableName = "Saratoga History.app"
+            BlueprintName = "Saratoga History"
+            ReferencedContainer = "container:Saratoga History.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

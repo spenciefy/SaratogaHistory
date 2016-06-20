@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SHPlace.h"
-#import "SYAudioPlayerView.h"
 
 @protocol SHPlaceViewControllerDelegate;
 
@@ -18,11 +17,7 @@
 @property (strong, nonatomic) SHPlace *place;
 @property (nonatomic, assign) int pageIndex;
 @property (nonatomic, assign) BOOL expanded;
-@property (nonatomic, assign) BOOL showsAudioView;
-
-@property (strong, nonatomic) SYAudioPlayerView *playerView;
-
-- (void)pause;
+@property (nonatomic, assign) BOOL isTourCard;
 
 @end
 

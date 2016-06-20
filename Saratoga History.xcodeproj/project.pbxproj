@@ -24,9 +24,6 @@
 		6C3C1E231B37227D008B39D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C3C1E211B37227D008B39D0 /* Main.storyboard */; };
 		6C3C1E281B37227D008B39D0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3C1E261B37227D008B39D0 /* LaunchScreen.xib */; };
 		6C3C1E341B37227D008B39D0 /* SaratogaHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3C1E331B37227D008B39D0 /* SaratogaHistoryTests.m */; };
-		6C66C92E1BF71F7400AEB3D7 /* SHTourCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C66C92D1BF71F7400AEB3D7 /* SHTourCardViewController.m */; };
-		6C66C9311BF7211600AEB3D7 /* SHTourInstructionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C66C9301BF7211600AEB3D7 /* SHTourInstructionView.m */; };
-		6C66C9341BF7215B00AEB3D7 /* SHTourInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C66C9331BF7215B00AEB3D7 /* SHTourInformationView.m */; };
 		6C77BE421CB3871600CBB172 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C77BE361CB3871600CBB172 /* Contents.json */; };
 		6C77BE431CB3871600CBB172 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C77BE371CB3871600CBB172 /* Icon-40.png */; };
 		6C77BE441CB3871600CBB172 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C77BE381CB3871600CBB172 /* Icon-40@2x.png */; };
@@ -89,12 +86,6 @@
 		6C3C1E2D1B37227D008B39D0 /* Saratoga HistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Saratoga HistoryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3C1E321B37227D008B39D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C3C1E331B37227D008B39D0 /* SaratogaHistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaratogaHistoryTests.m; sourceTree = "<group>"; };
-		6C66C92C1BF71F7400AEB3D7 /* SHTourCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHTourCardViewController.h; path = Controllers/SHTourCardViewController.h; sourceTree = "<group>"; };
-		6C66C92D1BF71F7400AEB3D7 /* SHTourCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHTourCardViewController.m; path = Controllers/SHTourCardViewController.m; sourceTree = "<group>"; };
-		6C66C92F1BF7211600AEB3D7 /* SHTourInstructionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTourInstructionView.h; sourceTree = "<group>"; };
-		6C66C9301BF7211600AEB3D7 /* SHTourInstructionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTourInstructionView.m; sourceTree = "<group>"; };
-		6C66C9321BF7215B00AEB3D7 /* SHTourInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTourInformationView.h; sourceTree = "<group>"; };
-		6C66C9331BF7215B00AEB3D7 /* SHTourInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTourInformationView.m; sourceTree = "<group>"; };
 		6C77BE361CB3871600CBB172 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		6C77BE371CB3871600CBB172 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		6C77BE381CB3871600CBB172 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -172,10 +163,6 @@
 				4C964F9A1B37343500F59E59 /* SYFullAudioPlayerView.m */,
 				4CA24BF21B373E1200593941 /* SHImageScrollerView.h */,
 				4CA24BF31B373E1200593941 /* SHImageScrollerView.m */,
-				6C66C92F1BF7211600AEB3D7 /* SHTourInstructionView.h */,
-				6C66C9301BF7211600AEB3D7 /* SHTourInstructionView.m */,
-				6C66C9321BF7215B00AEB3D7 /* SHTourInformationView.h */,
-				6C66C9331BF7215B00AEB3D7 /* SHTourInformationView.m */,
 			);
 			name = Views;
 			path = SaratogaHistory/Views;
@@ -190,8 +177,6 @@
 				4CC917F41B3742FF002AAEAF /* SHPlaceViewController.m */,
 				4CC917F51B3742FF002AAEAF /* SHTourViewController.h */,
 				4CC917F61B3742FF002AAEAF /* SHTourViewController.m */,
-				6C66C92C1BF71F7400AEB3D7 /* SHTourCardViewController.h */,
-				6C66C92D1BF71F7400AEB3D7 /* SHTourCardViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -461,14 +446,11 @@
 			files = (
 				4CC9180E1B375C29002AAEAF /* Reachability.m in Sources */,
 				4CC917F71B3742FF002AAEAF /* SHMapViewController.m in Sources */,
-				6C66C92E1BF71F7400AEB3D7 /* SHTourCardViewController.m in Sources */,
 				4CC917F91B3742FF002AAEAF /* SHTourViewController.m in Sources */,
 				4C964F9C1B37343500F59E59 /* SYFullAudioPlayerView.m in Sources */,
 				0A1FEA411B372B2C00AFB6A3 /* SHPlace.m in Sources */,
 				4C964F941B37340B00F59E59 /* SHPlaceManager.m in Sources */,
 				4C964F9B1B37343500F59E59 /* SYAudioPlayerView.m in Sources */,
-				6C66C9311BF7211600AEB3D7 /* SHTourInstructionView.m in Sources */,
-				6C66C9341BF7215B00AEB3D7 /* SHTourInformationView.m in Sources */,
 				6C3C1E1D1B37227D008B39D0 /* AppDelegate.m in Sources */,
 				4CA24BF41B373E1200593941 /* SHImageScrollerView.m in Sources */,
 				4C964F951B37340B00F59E59 /* UIView+AutoLayout.m in Sources */,

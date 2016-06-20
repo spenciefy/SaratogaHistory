@@ -7,7 +7,6 @@
 //
 
 #import "SHPlace.h"
-#import <Parse/Parse.h>
 
 @implementation SHPlace
 

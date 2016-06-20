@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SHPlace.h"
-#import <Parse/Parse.h>
 
 @interface SHPlaceManager : NSObject
 

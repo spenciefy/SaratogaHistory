@@ -12,7 +12,9 @@
 @protocol SHImageScrollerViewDelegate <NSObject>
 
 @optional
--(void)SHImageScrollerViewDidTap:(NSUInteger)index;
+
+- (void)SHImageScrollerViewDidTap:(NSUInteger)index;
+
 @end
 
 @interface SHImageScrollerView : UIView <UIScrollViewDelegate> {
@@ -22,11 +24,11 @@
     UIPageControl *pageControl;
     int currentPageIndex;
     id<SHImageScrollerViewDelegate> delegate;
-    UILabel *noteTitle;
 }
 
 @property (nonatomic, retain)id<SHImageScrollerViewDelegate> delegate;
 
--(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr;
+-(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr limitImagesToOne:(BOOL)limitToOne;
+
 
 @end

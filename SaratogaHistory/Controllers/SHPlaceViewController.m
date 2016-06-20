@@ -37,15 +37,7 @@
     _titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:_titleLabel];
     
-    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURL autoplay:NO textColor:[UIColor darkGrayColor]];
-    audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 45);
-    
-    if(self.showsAudioView) {
-        [self.view addSubview:audioPlayer];
-        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height + 2, self.view.frame.size.width, self.view.frame.size.height - 130)];
-    } else {
-        _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 8, self.view.frame.size.width, self.view.frame.size.height - 82)];
-    }
+    _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 8, self.view.frame.size.width, self.view.frame.size.height - 82)];
 
     _scrollView.showsVerticalScrollIndicator = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
@@ -54,7 +46,12 @@
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
-    SHImageScrollerView *imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images];
+    SHImageScrollerView *imageScroller;
+    if(self.isTourCard) {
+        imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images limitImagesToOne:YES];
+    } else {
+      imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images limitImagesToOne:NO];
+    }
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];
     
@@ -86,11 +83,6 @@
     CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
     return size.height;
 }
-
-- (void)pause {
-    [self.playerView stopAudio:self];
-}
-
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if ([_delegate respondsToSelector:@selector(scrollViewDidScroll:placeView:)]) {
