@@ -37,7 +37,7 @@
     _titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:_titleLabel];
     
-    _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 8, self.view.frame.size.width, self.view.frame.size.height - 82)];
+    _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, _titleLabel.frame.origin.y + _titleLabel.frame.size.height + 8, self.view.frame.size.width, self.view.frame.size.height - 122)];
 
     _scrollView.showsVerticalScrollIndicator = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
@@ -48,9 +48,9 @@
     
     SHImageScrollerView *imageScroller;
     if(self.isTourCard) {
-        imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images limitImagesToOne:YES];
+        imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images];
     } else {
-      imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images limitImagesToOne:NO];
+      imageScroller = [[SHImageScrollerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/4) imageArray:self.place.images];
     }
     imageScroller.delegate = self;
     [_scrollView addSubview:imageScroller];

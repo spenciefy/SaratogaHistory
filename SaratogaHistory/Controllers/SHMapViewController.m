@@ -205,14 +205,14 @@
 - (void)expandCurrentPage: (id)sender {
    currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 75, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
 -(void)tapExpandCurrentPage: (id)sender {
     currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 75, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
     
     UIView *temp = (UIView *)[sender view];
@@ -222,7 +222,7 @@
 - (void)shrinkCurrentPage: (id)sender {
     currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 75);
     } completion:nil];
 //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
 //    tapGesture.delegate = self;
@@ -233,7 +233,7 @@
 - (void)hideCurrentPage: (id)sender {
    currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 75);
     } completion:nil];
 }
 

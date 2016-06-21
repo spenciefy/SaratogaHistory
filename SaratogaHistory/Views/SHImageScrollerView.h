@@ -28,7 +28,7 @@
 
 @property (nonatomic, retain)id<SHImageScrollerViewDelegate> delegate;
 
--(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr limitImagesToOne:(BOOL)limitToOne;
+-(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr;
 
 
 @end

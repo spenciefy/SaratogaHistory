@@ -11,20 +11,15 @@
 @implementation SHImageScrollerView
 @synthesize delegate;
 
--(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr limitImagesToOne:(BOOL)limitToOne {
+-(id)initWithFrame:(CGRect)frame imageArray:(NSArray *)imgArr {
 
     if ((self=[super initWithFrame:frame])) {
         self.userInteractionEnabled = YES;
         
-//        if(limitToOne) {
-//            imageArray = @[[imgArr firstObject]];
-//
-//        } else {
-            NSMutableArray *tempArray = [NSMutableArray arrayWithArray:imgArr];
-            [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] - 1)] atIndex:0];
-            [tempArray addObject: [imgArr objectAtIndex:0]];
-            imageArray = [NSArray arrayWithArray:tempArray];
-   //     }
+        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:imgArr];
+        [tempArray insertObject:[imgArr objectAtIndex:([imgArr count] - 1)] atIndex:0];
+        [tempArray addObject: [imgArr objectAtIndex:0]];
+        imageArray = [NSArray arrayWithArray:tempArray];
         
         viewSize = frame;
         NSUInteger pageCount = [imageArray count];
@@ -39,7 +34,7 @@
         
         for (int i = 0; i < pageCount; i++) {
             UIImageView *imgView = [[UIImageView alloc] init];
-            UIImage *scaledImage = [self scaleImage:[UIImage imageWithContentsOfFile:imageArray[i]] toSize:viewSize.size];
+            UIImage *scaledImage = [self imageWithImage:[UIImage imageWithContentsOfFile:imageArray[i]] scaledToWidth:viewSize.size.width];
             [imgView setImage:scaledImage];
             
             [imgView setFrame:CGRectMake(viewSize.size.width * i, 0, viewSize.size.width, viewSize.size.height)];
@@ -112,4 +107,19 @@
     return scaledImage;
 }
 
+
+- (UIImage*)imageWithImage: (UIImage*) sourceImage scaledToWidth: (float) i_width
+{
+    float oldWidth = sourceImage.size.width;
+    float scaleFactor = i_width / oldWidth;
+    
+    float newHeight = sourceImage.size.height * scaleFactor;
+    float newWidth = oldWidth * scaleFactor;
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(newWidth, newHeight), NO, 0);
+    [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 @end
